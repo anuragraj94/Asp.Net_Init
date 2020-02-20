@@ -14,4 +14,6 @@
     <br /><br />
     <asp:Button ID="Button1" runat="server" Text="Submit" OnClick="Button1_Click" />
     <br /><br />
+    <asp:Label ID="lblMsg" runat="server" Text="Label"></asp:Label>
+    <br /><br />
 </asp:Content>

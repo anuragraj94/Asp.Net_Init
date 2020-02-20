@@ -6,6 +6,7 @@ using System.Linq;
 using System.Web;
 using System.Data.SqlClient;
 using System.Data.OleDb;
+using System.Data;
 
 namespace WebApplication1.Logics
 {
@@ -16,6 +17,8 @@ namespace WebApplication1.Logics
         static OleDbConnection con;
         static OleDbCommand cmd;
         static OleDbDataReader oleDbDataReader;
+        static OleDbDataAdapter OleDbDataAdapter;
+        static DataTable dt;
 
         /* ----------- For MS SQL Server ----------
          * 
@@ -149,5 +152,41 @@ namespace WebApplication1.Logics
             }
         }
 
+        public static DataTable GetName()
+        {
+            try
+            {
+                dt = new DataTable();
+                qur = "select Place from tbl_Warehous";
+                cmd = new OleDbCommand(qur, con);
+                OleDbDataAdapter = new OleDbDataAdapter(cmd);
+                OleDbDataAdapter.Fill(dt);
+                return dt;
+            }
+            catch (Exception ex)
+            {
+                return dt;
+            }
+        }
+
+        public static bool OrderCargo(int oId, int Quantity, string wPlace)
+        {
+            try
+            {
+                qur = "insert into tbl_OrderCargo values(@OrderId,@Quantity,@WarehousePlace)";
+                cmd = new OleDbCommand(qur, con);
+                //cmd.Parameters.AddWithValue("Id", count);
+                cmd.Parameters.AddWithValue("Order Id", oId);
+                cmd.Parameters.AddWithValue("Quantity", Quantity);
+                cmd.Parameters.AddWithValue("WarehousePlace", wPlace);                
+                cmd.ExecuteNonQuery();
+                //count++;
+                return true;
+            }
+            catch (Exception ex)
+            {
+                return false;
+            }
+        }
     }
 }

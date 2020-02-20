@@ -11,14 +11,21 @@ namespace WebApplication1.Admin
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-
+            lblMsg.Visible = false;
         }
 
         protected void Button1_Click(object sender, EventArgs e)
         {
             if (Logics.clsDB.AddWarehouse(Convert.ToInt32(txtId.Text),txtPlace.Text,txtSName.Text,Convert.ToInt32(txtCapacity.Text),Convert.ToInt32(txtMno.Text)))
             {
-                Response.Write("Added");
+                //Response.Write("Added");
+                txtCapacity.Text = "";
+                txtId.Text = "";
+                txtMno.Text = "";
+                txtPlace.Text = "";
+                txtSName.Text = "";
+                lblMsg.Visible = true;
+                lblMsg.Text = "Submitted Successfully";
             }
         }
     }

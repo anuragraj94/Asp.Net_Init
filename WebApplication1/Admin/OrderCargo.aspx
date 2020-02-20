@@ -2,12 +2,14 @@
 <asp:Content ID="Content1" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
     <h2>Order Cargo</h2>
     <br />
-    Order ID : <asp:TextBox ID="TextBox1" runat="server"></asp:TextBox>
+    Order ID : <asp:TextBox ID="txtOrderId" runat="server"></asp:TextBox>
     <br /><br />
-    Quantity : <asp:TextBox ID="TextBox2" runat="server"></asp:TextBox>
+    Quantity : <asp:TextBox ID="txtQuantity" runat="server"></asp:TextBox>
     <br /><br />
-    Warehouse Place : <asp:DropDownList ID="DropDownList1" runat="server"></asp:DropDownList>
+    Warehouse Place : <asp:DropDownList ID="ddlPlace" runat="server"></asp:DropDownList>
     <br /><br />
-    <asp:Button ID="Button1" runat="server" Text="Order" />
+    <asp:Button ID="btnOrder" runat="server" Text="Order" OnClick="btnOrder_Click" />
+    <br /><br />
+    <asp:Label ID="lblmsg" runat="server" Text="Label"></asp:Label>
     <br /><br />
 </asp:Content>
