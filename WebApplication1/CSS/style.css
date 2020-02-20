@@ -1,0 +1,113 @@
+/* CSS Document */
+body{ margin:0px; padding:0px; background:#A0A0A3;}
+p{ margin:0px; padding:0px;}
+img{ border:0px;}
+
+#mainblock{  width:1000px; margin: auto;}
+#innerblock{ width:1000px; float:left; background:#FFFFFF repeat; }
+
+
+a:hover{ text-decoration: underline;}
+.topblock{ display:inline; clear:left; float:left;  width:1000px;}
+.tp_bg1{ display:inline; clear:left; float:left; background:url(../images/tp_bg1.jpg) no-repeat; width:1000px; height:37px;}
+.tp_hme{ clear:left; float:left; width:60px; font:11px/15px arial; color:#fff;margin:10px 0px 0px 56px; text-decoration:none;}
+.admintp_hme {
+    clear: left;
+    float: left;
+    width: 80px;
+    font: 11px/15px arial;
+    color: #fff;
+    margin: 10px 0px 0px 56px;
+    text-decoration: none;
+}
+.abt_tp_hme{ clear:left; float:left; width:60px; font:11px/15px arial; color:#F5BE28;margin:10px 0px 0px 56px; text-decoration:none;}
+.abt_tp_abt{ float:left; width:55px; font: 11px/15px arial; color:#fff; margin:10px 0px 0px 55px; text-decoration:none;}
+.tp_hme1{ float:left; width:55px; font: 11px/15px arial; color:#F5BE28; margin:10px 0px 0px 55px; text-decoration:none;}
+.tp_hme2{ float:left; width:55px; font: 11px/15px arial; color:#F5BE28; margin:10px 0px 0px 45px; text-decoration:none;}
+.admintp_hme2 {
+    float: left;
+    width: 200px;
+    font: 11px/15px arial;
+    color: #F5BE28;
+    margin: 10px 0px 0px 45px;
+    text-decoration: none;
+}
+.tp_abt{ float:left; width:70px; font: bold 12px/15px arial; color:#fff; margin:24px 0px 0px 40px; text-decoration:none;}
+.tp_abt1{ float:left; width:100px; font: bold 12px/15px arial; color:#Fff; margin:24px 0px 0px 50px; text-decoration:none;}
+.tp_serv{ float:left; width:85px; font: bold 12px/15px arial; color:#Fff; margin:24px 0px 0px 0px; text-decoration:none;}
+.tp_sch{ float:left; width:40px; font: bold 12px/15px arial; color:#000; margin:24px 0px 0px 10px; text-decoration:none;}
+.sch_box{ float:left; width:130px; height:18px; background:#fff;; margin:20px 0px 0px 15px;}
+.tp_go{ float:left; margin:25px 0px 0px 0px;}
+
+
+.tp_serv1{ float:left; width:40px; font: bold 12px/15px arial; color:#Fff; margin:24px 0px 0px 15px; text-decoration:none;}
+.tp_bg2{ display:inline; clear:left; float:left; background:url(../images/tp_bg2.jpg) no-repeat; width:511px; height:268px;}
+.tp_bg3{ display:inline; float:left; background:url(../images/tp_bg3.jpg) no-repeat; width:489px; height:268px;}
+.abt_tp_bg1{ display:inline; clear:left; float:left; background:url(../images/abt_tp_bg1.jpg) no-repeat; width:1000px; height:37px;}
+
+.tp_logo{ clear:left; float:left; margin:54px 0px 0px 135px;}
+.logo_txt{ clear:left; float:left; width:240px; font: 11px/15px arial; color:#ABABAA; margin:70px 0px 0px 70px; text-decoration:none;}
+.logo_txt2{ float:left; width:140px; font: 11px/15px arial; color:#ABABAA; margin:80px 0px 0px 35px; text-decoration:none;}
+.tp_online{ clear:left; float:left; width:75px; font: 11px/15px Arial; color:#242424; margin:184px 0px 0px 381px; text-decoration:none;}
+
+
+.center_panel{ display: inline; clear:left; float:left; width:980px; margin:20px 0px 0px 10px;  }
+.cp_top{ clear:left; float:left; }
+.cen_1px{ display: inline; clear:left; float:left; width:980px; background:#062290 url(../images/cp_1px.jpg) repeat-x;  margin:0px 0px 0px 0px; padding-bottom:20px; }
+.succ_img{ clear:left; float:left; margin:32px 0px 0px 54px;}
+.cp_teach{ clear:left; float:left; width:170px; font: 14px Century Gothic; color:#fff; margin:27px 0px 0px 20px; text-decoration:none;}
+.teach_txt{ clear:left; float:left; width:360px; font:11px/15px arial; color:#D2D2D2; margin:15px 0px 0px 15px; text-decoration:none;}
+.cp_mae_arw{ clear:left; float:left; margin:30px 0px 0px 15px;}
+.cp_mae_txt{ float:left; width:215px; font: bold 14px Century Gothic; color:#FFC834; margin:30px 0px 0px 10px; text-decoration:none;}
+.cp_mae_txt2{ clear:left; float:left; width:290px; font: 11px/15px Arial; color:#FFf; margin:30px 0px 0px 40px; text-decoration:none;}
+.cp_line{ float:left; margin:15px 0px 0px 0px;}
+
+
+
+
+.cp_div{ display: inline; clear:left; float:left; width:980px;  margin-left:10px; padding-bottom:20px; }
+
+
+.lp_div{ display:inline; clear:left; float:left; width:723px; }
+.lp_feat{ clear:left; float:left; width:145px; font: bold 16px arial; color:#FFBE11; margin:54px 0px 15px 0px; text-decoration:none;}
+.feat_arw{ clear:left; float:left; margin:14px 0px 0px 0px;}
+.feat_txt{ float:left; width:130px; font:11px/15px arial; color:#747474; margin:10px 0px 0px 15px; text-decoration:none;}
+.feat_more{ clear:left; float:left; width:100px; font: bold 11px/15px arial; color:#FFBE11; margin:15px 0px 15px 0px; text-decoration:none;}
+.prof_bg{ clear:left; float:left; width:225px; height:118px; background: url(../images/prof_bg.jpg) no-repeat; margin:20px 0px 0px 0px;}
+.lp_prof{ clear:left; float:left; margin:29px 0px 0px 86px;}
+.prof_arw{ clear:left; float:left; margin:20px 0px 0px 136px;}
+.prof_click{ float:left; width:60px; font: bold 11px/15px arial; color:#FFBE11; margin:15px 0px 0px 10px; text-decoration:none;}
+.lp_wel{ clear:left; float:left; margin:50px 0px 0px 0px;}
+.wel_txt{ clear:left; float:left; width:342px; font:11px/15px arial; color:#FFBE11; margin:35px 0px 0px 0px; text-decoration:none;}
+.wel_arw{ clear:left; float:left; margin:20px 0px 0px 15px;}
+.wel_txt2{ float:left; width:310px; font:11px/15px arial; color:#8A8A8A; margin:15px 0px 0px 15px; text-decoration:none;}
+
+
+
+
+.rp_div{ display:inline; float:left; width:257px; }
+.part_arw{ clear:left; float:left; margin:20px 0px 0px 0px;}
+.part_txt{ float:left; width:198px; font:11px/15px arial; color:#747474; margin:15px 0px 0px 10px; text-decoration:none;}
+.part_img{ clear:left; float:left; margin:20px 0px 0px 0px;}
+
+
+.abt_lp_div{ display:inline; clear:left; float:left; width:646px; }
+.lp_abt{ clear:left; float:left; width:530px; font:12px/15px arial; color:#979080; margin:50px 0px 0px 0px; text-decoration:none;}
+.abt_txt{ clear:left; float:left; width:591px; font:11px/15px arial; color:#FFBE11; margin:15px 0px 20px 0px; text-decoration:none;}
+.abt_img_bg{ clear:left; float:left; width:630px; background:url(../images/abt_img.jpg) bottom right no-repeat;}
+.abt_arw{ clear:left; float:left; margin:20px 0px 0px 15px;}
+.abt_txt2{ float:left; width:310px; font:11px/15px arial; color:#8A8A8A; margin:15px 0px 0px 15px; text-decoration:none;}
+
+
+
+
+.ft_bg{ display: inline; clear:left; float:left; width:1000px; height:111px; background:#EEEEEE;}
+.ft_bar{ float:left; margin:32px 0px 0px 15px;}
+.ft_home{ clear:left; float:left; width:60px; font: 11px/15px tahoma; color:#6D6D6D; margin:29px 0px 0px 250px; text-decoration:none; }
+.ft_dom{ float:left; width:65px; font: 11px/15px tahoma; color:#6D6D6D; margin:29px 0px 0px 15px; text-decoration:none;}
+.ft_copy{ clear:left; float:left; width:290px; font: 11px/15px tahoma; color:#C9950B; margin:8px 0px 0px 340px;}
+.ft_dom1{ float:left; width:70px; font: 11px/15px tahoma; color:#6D6D6D; margin:29px 0px 0px 15px; text-decoration:none;}
+.ft_spl{ float:left; width:50px; font: 11px/15px tahoma; color:#6D6D6D; margin:29px 0px 0px 15px; text-decoration:none;}
+
+
+

@@ -30,7 +30,16 @@ namespace WebApplication1
             clsModel_Users.Password = txtPass.Text;
             if (Logics.clsDB.Login(txtEmail.Text, txtPass.Text))
             {
-                Response.Write("<br>Login Sucess......!!");
+                //Response.Write("<br>Login Sucess......!!");
+                Session["Name"] = txtEmail.Text;
+                if (txtEmail.Text=="admin")
+                {
+                    Response.Redirect("../Admin/AddWareHouse.aspx");
+                }
+                else
+                {
+                    Response.Redirect("../User/Acceptance.aspx");
+                }
             }
             else
             {

@@ -108,6 +108,50 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Content Include="about.aspx" />
+    <Content Include="Admin\AddWareHouse.aspx" />
+    <Content Include="Admin\OrderCargo.aspx" />
+    <Content Include="Admin\Recorder.aspx" />
+    <Content Include="Admin\ShiftOrder.aspx" />
+    <Content Include="Admin\TraceCargo.aspx" />
+    <Content Include="Admin\ViewOrder.aspx" />
+    <Content Include="Contact.aspx" />
+    <Content Include="CSS\style.css" />
+    <Content Include="home.aspx" />
+    <Content Include="images\abt_img.jpg" />
+    <Content Include="images\abt_tp_bg1.jpg" />
+    <Content Include="images\cp_1px.jpg" />
+    <Content Include="images\cp_bg.jpg" />
+    <Content Include="images\cp_bot.jpg" />
+    <Content Include="images\cp_line.jpg" />
+    <Content Include="images\cp_mae_arw.jpg" />
+    <Content Include="images\cp_teach.jpg" />
+    <Content Include="images\cp_top.jpg" />
+    <Content Include="images\feat_arw.jpg" />
+    <Content Include="images\ft_bar.jpg" />
+    <Content Include="images\lp_prof.jpg" />
+    <Content Include="images\lp_wel.jpg" />
+    <Content Include="images\part_arw.jpg" />
+    <Content Include="images\part_img.jpg" />
+    <Content Include="images\part_img2.jpg" />
+    <Content Include="images\prof_arw.jpg" />
+    <Content Include="images\prof_bg.jpg" />
+    <Content Include="images\prof_img.jpg" />
+    <Content Include="images\succ_img.jpg" />
+    <Content Include="images\tp_bg1.jpg" />
+    <Content Include="images\tp_bg1_1px.jpg" />
+    <Content Include="images\tp_bg2.jpg" />
+    <Content Include="images\tp_bg3.jpg" />
+    <Content Include="images\tp_logo.jpg" />
+    <Content Include="images\tp_logo_06.jpg" />
+    <Content Include="images\wel_arw.jpg" />
+    <Content Include="Partners.aspx" />
+    <Content Include="Services.aspx" />
+    <Content Include="Support.aspx" />
+    <Content Include="User\Acceptance.aspx" />
+    <Content Include="User\DamageGoods.aspx" />
+    <Content Include="User\Dispatch.aspx" />
+    <Content Include="User\GatePass.aspx" />
     <Content Include="Views\check.aspx" />
     <Content Include="CSS\login.css" />
     <Content Include="Views\Demo.aspx" />
@@ -116,10 +160,144 @@
     <Content Include="JS\JavaScript.js" />
     <Content Include="Views\logIn.aspx" />
     <Content Include="Web.config" />
+    <Content Include="WebForm1.aspx" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="about.aspx.cs">
+      <DependentUpon>about.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="about.aspx.designer.cs">
+      <DependentUpon>about.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Admin\AddWareHouse.aspx.cs">
+      <DependentUpon>AddWareHouse.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Admin\AddWareHouse.aspx.designer.cs">
+      <DependentUpon>AddWareHouse.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Admin\OrderCargo.aspx.cs">
+      <DependentUpon>OrderCargo.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Admin\OrderCargo.aspx.designer.cs">
+      <DependentUpon>OrderCargo.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Admin\Recorder.aspx.cs">
+      <DependentUpon>Recorder.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Admin\Recorder.aspx.designer.cs">
+      <DependentUpon>Recorder.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Admin\ShiftOrder.aspx.cs">
+      <DependentUpon>ShiftOrder.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Admin\ShiftOrder.aspx.designer.cs">
+      <DependentUpon>ShiftOrder.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Admin\TraceCargo.aspx.cs">
+      <DependentUpon>TraceCargo.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Admin\TraceCargo.aspx.designer.cs">
+      <DependentUpon>TraceCargo.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Admin\ViewOrder.aspx.cs">
+      <DependentUpon>ViewOrder.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Admin\ViewOrder.aspx.designer.cs">
+      <DependentUpon>ViewOrder.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Contact.aspx.cs">
+      <DependentUpon>Contact.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Contact.aspx.designer.cs">
+      <DependentUpon>Contact.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="home.aspx.cs">
+      <DependentUpon>home.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="home.aspx.designer.cs">
+      <DependentUpon>home.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Logics\clsDB.cs" />
     <Compile Include="Models\clsModel_Users.cs" />
+    <Compile Include="Partners.aspx.cs">
+      <DependentUpon>Partners.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Partners.aspx.designer.cs">
+      <DependentUpon>Partners.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Services.aspx.cs">
+      <DependentUpon>Services.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Services.aspx.designer.cs">
+      <DependentUpon>Services.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Site1.Master.cs">
+      <DependentUpon>Site1.Master</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Site1.Master.designer.cs">
+      <DependentUpon>Site1.Master</DependentUpon>
+    </Compile>
+    <Compile Include="Site2.Master.cs">
+      <DependentUpon>Site2.Master</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Site2.Master.designer.cs">
+      <DependentUpon>Site2.Master</DependentUpon>
+    </Compile>
+    <Compile Include="Site3.Master.cs">
+      <DependentUpon>Site3.Master</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Site3.Master.designer.cs">
+      <DependentUpon>Site3.Master</DependentUpon>
+    </Compile>
+    <Compile Include="Support.aspx.cs">
+      <DependentUpon>Support.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Support.aspx.designer.cs">
+      <DependentUpon>Support.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="User\Acceptance.aspx.cs">
+      <DependentUpon>Acceptance.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="User\Acceptance.aspx.designer.cs">
+      <DependentUpon>Acceptance.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="User\DamageGoods.aspx.cs">
+      <DependentUpon>DamageGoods.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="User\DamageGoods.aspx.designer.cs">
+      <DependentUpon>DamageGoods.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="User\Dispatch.aspx.cs">
+      <DependentUpon>Dispatch.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="User\Dispatch.aspx.designer.cs">
+      <DependentUpon>Dispatch.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="User\GatePass.aspx.cs">
+      <DependentUpon>GatePass.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="User\GatePass.aspx.designer.cs">
+      <DependentUpon>GatePass.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Views\check.aspx.cs">
       <DependentUpon>check.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -152,9 +330,19 @@
       <DependentUpon>logIn.aspx</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="WebForm1.aspx.cs">
+      <DependentUpon>WebForm1.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="WebForm1.aspx.designer.cs">
+      <DependentUpon>WebForm1.aspx</DependentUpon>
+    </Compile>
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
+    <Content Include="Site1.Master" />
+    <Content Include="Site2.Master" />
+    <Content Include="Site3.Master" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
