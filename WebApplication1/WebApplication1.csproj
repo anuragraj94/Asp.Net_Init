@@ -111,7 +111,7 @@
     <Content Include="about.aspx" />
     <Content Include="Admin\AddWareHouse.aspx" />
     <Content Include="Admin\OrderCargo.aspx" />
-    <Content Include="Admin\Recorder.aspx" />
+    <Content Include="Admin\Reorder.aspx" />
     <Content Include="Admin\ShiftOrder.aspx" />
     <Content Include="Admin\TraceCargo.aspx" />
     <Content Include="Admin\ViewOrder.aspx" />
@@ -184,12 +184,12 @@
     <Compile Include="Admin\OrderCargo.aspx.designer.cs">
       <DependentUpon>OrderCargo.aspx</DependentUpon>
     </Compile>
-    <Compile Include="Admin\Recorder.aspx.cs">
-      <DependentUpon>Recorder.aspx</DependentUpon>
+    <Compile Include="Admin\Reorder.aspx.cs">
+      <DependentUpon>Reorder.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="Admin\Recorder.aspx.designer.cs">
-      <DependentUpon>Recorder.aspx</DependentUpon>
+    <Compile Include="Admin\Reorder.aspx.designer.cs">
+      <DependentUpon>Reorder.aspx</DependentUpon>
     </Compile>
     <Compile Include="Admin\ShiftOrder.aspx.cs">
       <DependentUpon>ShiftOrder.aspx</DependentUpon>

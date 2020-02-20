@@ -16,7 +16,10 @@
   <div id="innerblock">
     <!--top block starts here -->
     <div class="topblock">
-      <div class="tp_bg1"> <a href="AddWareHouse.aspx" class="admintp_hme">Add WareHouse</a> <a href="OrderCargo.aspx" class="tp_hme1">Order Cargo</a> <a href="ShiftOrder.aspx" class="tp_hme1">Shift Order</a> <a href="ViewOrder.aspx" class="tp_hme2">View Order</a> <a href="TraceCargo.aspx" class="tp_hme2">Trace Cargo</a> <a href="Recorder.aspx" class="tp_hme2">Recorder</a> <a href="#" class="admintp_hme2"><%="Welcome "+Session["Name"] %> Log Out</a></div>
+      <div class="tp_bg1"> <a href="AddWareHouse.aspx" class="admintp_hme">Add WareHouse</a> <a href="OrderCargo.aspx" class="tp_hme1">Order Cargo</a> <a href="ShiftOrder.aspx" class="tp_hme1">Shift Order</a> <a href="ViewOrder.aspx" class="tp_hme2">View Order</a> <a href="TraceCargo.aspx" class="tp_hme2">Trace Cargo</a> <a href="Reorder.aspx" class="tp_hme2">Recorder</a> 
+          <%--<a href="#" class="admintp_hme2"><%="Welcome "+Session["Name"] %> Log Out</a>--%>
+          <asp:Button ID="Button1" class="admintp_hme2" runat="server" Text="Button" OnClick="Button1_Click" />
+      </div>
       <div class="tp_bg2"> <a href="http://all-free-download.com/free-website-templates/" class="tp_logo"><img src="images/tp_logo.jpg" width="245" height="44" alt="" /></a> <span class="logo_txt"><span style="font:18px arial; color:#C5CCE4;">Morbi eleifend placerat eros.</span><br />
         Nullam nulla. Nullam nulla diam, faucibus in, adipiscing sit amet, interdum eu, tortor.</span> <span class="logo_txt2"><span style="font:14px arial; color:#FFC834;"><b>Donec MolestieT</b></span><br />
         Phasellus non for Business</span> </div>

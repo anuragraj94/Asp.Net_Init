@@ -13,5 +13,13 @@ namespace WebApplication1.Admin
         {
 
         }
+
+        protected void Button1_Click(object sender, EventArgs e)
+        {
+            if (Logics.clsDB.AddWarehouse(Convert.ToInt32(txtId.Text),txtPlace.Text,txtSName.Text,Convert.ToInt32(txtCapacity.Text),Convert.ToInt32(txtMno.Text)))
+            {
+                Response.Write("Added");
+            }
+        }
     }
 }

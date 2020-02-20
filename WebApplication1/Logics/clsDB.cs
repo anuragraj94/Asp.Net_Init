@@ -126,5 +126,28 @@ namespace WebApplication1.Logics
             }
         }
 
+
+        public static bool AddWarehouse(int wId, string Place, string Sname,int capacity,int mNo)
+        {
+            try
+            {
+                qur = "insert into tbl_Warehous values(@ID,@Place,@SupervisorName,@Capacity,@MobileNumber)";
+                cmd = new OleDbCommand(qur, con);
+                //cmd.Parameters.AddWithValue("Id", count);
+                cmd.Parameters.AddWithValue("ID", wId);
+                cmd.Parameters.AddWithValue("Place", Place);
+                cmd.Parameters.AddWithValue("SupervisorName", Sname);
+                cmd.Parameters.AddWithValue("Capacity", capacity);
+                cmd.Parameters.AddWithValue("MobileNumber", mNo);
+                cmd.ExecuteNonQuery();
+                //count++;
+                return true;
+            }
+            catch (Exception ex)
+            {
+                return false;
+            }
+        }
+
     }
 }
