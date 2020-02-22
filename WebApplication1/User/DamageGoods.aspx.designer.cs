@@ -13,22 +13,22 @@ namespace WebApplication1.User {
     public partial class DamageGoods {
         
         /// <summary>
-        /// DropDownList1 control.
+        /// ddlOId control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.DropDownList DropDownList1;
+        protected global::System.Web.UI.WebControls.DropDownList ddlOId;
         
         /// <summary>
-        /// TextBox1 control.
+        /// txtNote control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox TextBox1;
+        protected global::System.Web.UI.WebControls.TextBox txtNote;
         
         /// <summary>
         /// Button1 control.

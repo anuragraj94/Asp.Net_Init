@@ -6,6 +6,7 @@
 <head runat="server">
     <title>WareHouse</title>
     <link href="CSS/style.css" rel="stylesheet" />
+    <link href="CSS/ContentStyle.css" rel="stylesheet" />
    <%-- <asp:ContentPlaceHolder ID="head" runat="server">
     </asp:ContentPlaceHolder>--%>
 </head>
@@ -16,7 +17,7 @@
   <div id="innerblock">
     <!--top block starts here -->
     <div class="topblock">
-      <div class="tp_bg1"> <a href="AddWareHouse.aspx" class="admintp_hme">Add WareHouse</a> <a href="OrderCargo.aspx" class="tp_hme1">Order Cargo</a> <a href="ShiftOrder.aspx" class="tp_hme1">Shift Order</a> <a href="ViewOrder.aspx" class="tp_hme2">View Order</a> <a href="TraceCargo.aspx" class="tp_hme2">Trace Cargo</a> <a href="Reorder.aspx" class="tp_hme2">Recorder</a> 
+      <div class="tp_bg1"> <a href="AddWareHouse.aspx" class="admintp_hme">Add WareHouse</a> <a href="OrderCargo.aspx" class="tp_hme1">Order Cargo</a> <a href="ShiftOrder.aspx" class="tp_hme1">Shift Order</a> <a href="ViewOrder.aspx" class="tp_hme2">View Order</a> <a href="TraceCargo.aspx" class="tp_hme2">Trace Cargo</a> <a href="Reorder.aspx" class="tp_hme2">Reorder</a> 
           <%--<a href="#" class="admintp_hme2"><%="Welcome "+Session["Name"] %> Log Out</a>--%>
           <asp:Button ID="Button1" class="admintp_hme2" runat="server" Text="Button" OnClick="Button1_Click" />
       </div>
@@ -38,7 +39,9 @@
             <a href="#" style="color:#FFBE11;">View More Info&nbsp;&raquo;</a> </span></span> </p>
         </div>
         <img src="images/cp_bot.jpg" width="980" height="5" alt="" class="cp_top" /> </div>--%>
-        <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server"></asp:ContentPlaceHolder>
+        <div align="center">
+            <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server"></asp:ContentPlaceHolder>
+        </div>        
     </div>
     <!--top block ends here -->
     <!--content panel starts here -->

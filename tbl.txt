@@ -1,0 +1,127 @@
+ <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server">
+            </asp:ContentPlaceHolder>
+
+
+
+
+
+ <div class="center_panel"> <img src="images/cp_top.jpg" width="980" height="5" alt="" class="cp_top" />
+        <div class="cen_1px">
+          <p style=" display:inline; clear:left; float:left; width:599px;"> <img src="images/succ_img.jpg" width="158" height="134" alt="" class="succ_img" /> <span style="float:left; width:380px;"> <span class="cp_teach">&#8220;We'll Teach You To Be <span style="font:24px Century Gothic; color:#FFBE11;">Successful</span></span> <span class="teach_txt">Donec at nulla. Vivamus pharetra orci. Praesent ut pede. Vivamus mattis. Pellentesque placerat faucibus risus.<br />
+            <b>Nulla commodo placerat orci.</b><br />
+            <br />
+            <a href="#" style="color:#D2D2D2;">View More Info&nbsp;&raquo;</a> </span> </span> <img src="images/cp_line.jpg" width="1" height="150" alt="" class="cp_line"  /> </p>
+          <p style=" display:inline; float:left; width:381px;"> <img src="images/cp_mae_arw.jpg" width="17" height="16" alt="" class="cp_mae_arw" /> <span class="cp_mae_txt">Maecenas blandit nibh et nibh. </span> <span class="cp_mae_txt2">Fusce condimentum. Mauris non sapien eu ipsum congue scelerisque. Vivamus scelerisque, elit sed vulputate cursus, elit arcu ullamcorper justo, a condimentum dui felis cursus sapien. Nunc elit.<br />
+            <span style="color:#398AEF;">Fusce rhoncus lacus quisper inceptos himenaeo diam.<br />
+            <br />
+            <a href="#" style="color:#FFBE11;">View More Info&nbsp;&raquo;</a> </span></span> </p>
+        </div>
+        <img src="images/cp_bot.jpg" width="980" height="5" alt="" class="cp_top" /> </div>
+
+
+Admin
+Add WareHouse | Order Cargo |	Shift Order	| View Order	| Trace Cargo	| Recorder	| Log out
+
+
+User
+Acceptance	|	Dispatch	|	Damage Goods	|	Gate Pass	| Log out
+
+
+
+
+600000
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+delegate void dgtst();
+
+  void tst() 
+        {
+            if (dgrdErrorList.InvokeRequired)
+            {
+                dgtst dg = new dgtst(tst);
+                dgrdErrorList.Invoke(dg);
+            }
+            else
+            {
+                selectAll();
+                Solve_alarm();
+                this.Close();
+            }
+        }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+	1. Add warehouse
+
+	2. Order Cargo (Common field 'warehouse place')
+
+	3. Shift Cargo (Common field 'order id and warehouse place')
+
+	
+
+	
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

@@ -12,11 +12,19 @@ namespace WebApplication1.Admin
     {
         protected void Page_Load(object sender, EventArgs e)
         {
+            if (Session["Name"].ToString() != "admin")
+            {
+                Session.Clear();
+                Response.Redirect("../home.aspx");
+            }
             lblmsg.Visible = false;
-            FillDropdown();
+            if (!IsPostBack)
+            {
+                FillDropdown();
+            }            
         }
 
-        void FillDropdown()
+        public void FillDropdown()
         {
             ddlPlace.Items.Add("--Select--");
             DataTable data;
@@ -30,13 +38,20 @@ namespace WebApplication1.Admin
 
         protected void btnOrder_Click(object sender, EventArgs e)
         {
-            if (Logics.clsDB.OrderCargo(Convert.ToInt32(txtOrderId.Text),Convert.ToInt32(txtQuantity.Text),ddlPlace.SelectedItem.Text))
+            try
             {
-                txtOrderId.Text = "";
-                txtQuantity.Text = "";
-                ddlPlace.SelectedItem.Text = "";
-                lblmsg.Visible = true;
-                lblmsg.Text = "Submitted";
+                if (Logics.clsDB.OrderCargo(Convert.ToInt32(txtOrderId.Text), Convert.ToInt32(txtQuantity.Text), ddlPlace.SelectedItem.Text))
+                {
+                    txtOrderId.Text = "";
+                    txtQuantity.Text = "";
+                    ddlPlace.SelectedIndex = 0;
+                    lblmsg.Visible = true;
+                    lblmsg.Text = "Submitted";
+                }
+            }
+            catch (Exception)
+            {
+                
             }
         }
     }

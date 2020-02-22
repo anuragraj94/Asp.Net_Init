@@ -169,6 +169,23 @@ namespace WebApplication1.Logics
             }
         }
 
+        public static DataTable GetOrderId()
+        {
+            try
+            {
+                dt = new DataTable();
+                qur = "select OrderId from tbl_OrderCargo";
+                cmd = new OleDbCommand(qur, con);
+                OleDbDataAdapter = new OleDbDataAdapter(cmd);
+                OleDbDataAdapter.Fill(dt);
+                return dt;
+            }
+            catch (Exception ex)
+            {
+                return dt;
+            }
+        }
+
         public static bool OrderCargo(int oId, int Quantity, string wPlace)
         {
             try
@@ -186,6 +203,81 @@ namespace WebApplication1.Logics
             catch (Exception ex)
             {
                 return false;
+            }
+        }
+
+        public static bool ShiftCargo(int oId, string place, int quant,string shiftTo,int capa,int quantityInWhouse)
+        {
+            try
+            {
+                qur = "insert into tbl_ShiftCargo values(@OrderId,@Place,@QuantityOrdered,@ShiftTo,@Capacity,@QuantityInWarehouse)";
+                cmd = new OleDbCommand(qur, con);
+                //cmd.Parameters.AddWithValue("Id", count);
+                cmd.Parameters.AddWithValue("Order Id", oId);
+                cmd.Parameters.AddWithValue("Place", place);
+                cmd.Parameters.AddWithValue("QuantityOrdered", quant);
+                cmd.Parameters.AddWithValue("ShiftTo", shiftTo);
+                cmd.Parameters.AddWithValue("Capacity", capa);
+                cmd.Parameters.AddWithValue("QuantityInWarehouse", quantityInWhouse);
+               // cmd.Parameters.AddWithValue("DateTime", DateTime.Now);
+                cmd.ExecuteNonQuery();
+                //count++;
+                return true;
+            }
+            catch (Exception ex)
+            {
+                return false;
+            }
+        }
+
+        public static DataTable GetShiftCargo()
+        {
+            try
+            {
+                dt = new DataTable();
+                qur = "select * from tbl_ShiftCargo";
+                cmd = new OleDbCommand(qur, con);
+                OleDbDataAdapter = new OleDbDataAdapter(cmd);
+                OleDbDataAdapter.Fill(dt);
+                return dt;
+            }
+            catch (Exception ex)
+            {
+                return dt;
+            }
+        }
+
+        public static DataTable GetByOrderID(int id)
+        {
+            try
+            {
+                dt = new DataTable();
+                qur = "select * from tbl_ShiftCargo where OrderId="+id+" ";
+                cmd = new OleDbCommand(qur, con);
+                OleDbDataAdapter = new OleDbDataAdapter(cmd);
+                OleDbDataAdapter.Fill(dt);
+                return dt;
+            }
+            catch (Exception ex)
+            {
+                return dt;
+            }
+        }
+
+        public static DataTable GetDataByArra()
+        {
+            try
+            {
+                dt = new DataTable();
+                qur = "select OrderId,Place,ShiftTo from tbl_ShiftCargo";
+                cmd = new OleDbCommand(qur, con);
+                OleDbDataAdapter = new OleDbDataAdapter(cmd);
+                OleDbDataAdapter.Fill(dt);
+                return dt;
+            }
+            catch (Exception ex)
+            {
+                return dt;
             }
         }
     }

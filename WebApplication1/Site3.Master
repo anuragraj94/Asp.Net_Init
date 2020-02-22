@@ -38,7 +38,9 @@
             <a href="#" style="color:#FFBE11;">View More Info&nbsp;&raquo;</a> </span></span> </p>
         </div>
         <img src="images/cp_bot.jpg" width="980" height="5" alt="" class="cp_top" /> </div>--%>
-        <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server"></asp:ContentPlaceHolder>
+        <div align="center">
+            <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server"></asp:ContentPlaceHolder>
+        </div>        
     </div>
     <!--top block ends here -->
     <!--content panel starts here -->

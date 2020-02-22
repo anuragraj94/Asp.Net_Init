@@ -10,22 +10,38 @@ namespace WebApplication1.Admin
     public partial class AddWareHouse : System.Web.UI.Page
     {
         protected void Page_Load(object sender, EventArgs e)
-        {
+        {            
+            if (Session["Name"].ToString()!= "admin")
+            {
+                Session.Clear();
+                Response.Redirect("../home.aspx");
+            }
             lblMsg.Visible = false;
         }
 
         protected void Button1_Click(object sender, EventArgs e)
         {
-            if (Logics.clsDB.AddWarehouse(Convert.ToInt32(txtId.Text),txtPlace.Text,txtSName.Text,Convert.ToInt32(txtCapacity.Text),Convert.ToInt32(txtMno.Text)))
+            try
             {
-                //Response.Write("Added");
-                txtCapacity.Text = "";
-                txtId.Text = "";
-                txtMno.Text = "";
-                txtPlace.Text = "";
-                txtSName.Text = "";
-                lblMsg.Visible = true;
-                lblMsg.Text = "Submitted Successfully";
+
+                //string jscript = "<script>alert('YOUR BUTTON HAS BEEN CLICKED')</script>";
+                //System.Type t = this.GetType();
+                //ClientScript.RegisterStartupScript(t, "k", jscript);
+                if (Logics.clsDB.AddWarehouse(Convert.ToInt32(txtId.Text), txtPlace.Text, txtSName.Text, Convert.ToInt32(txtCapacity.Text), Convert.ToInt32(txtMno.Text)))
+                {
+                    //Response.Write("Added");
+                    txtCapacity.Text = "";
+                    txtId.Text = "";
+                    txtMno.Text = "";
+                    txtPlace.Text = "";
+                    txtSName.Text = "";
+                    lblMsg.Visible = true;
+                    lblMsg.Text = "Submitted Successfully";
+                }
+            }
+            catch (Exception)
+            {
+                
             }
         }
     }

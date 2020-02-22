@@ -2,10 +2,10 @@
 <asp:Content ID="Content1" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
     <h2>Damaged Goods</h2>
     <br />
-    Order ID : <asp:DropDownList ID="DropDownList1" runat="server"></asp:DropDownList>
+    Order ID : <asp:DropDownList ID="ddlOId" runat="server"></asp:DropDownList>
     <br /><br />
-    Note : <asp:TextBox ID="TextBox1" runat="server" Height="43px" TextMode="MultiLine"></asp:TextBox>
+    Note : <asp:TextBox ID="txtNote" runat="server" Height="43px" TextMode="MultiLine"></asp:TextBox>
     <br /><br />
-    <asp:Button ID="Button1" runat="server" Text="Submit" />
+    <asp:Button ID="Button1" runat="server" Text="Submit" OnClick="Button1_Click" />
     <br /><br />
 </asp:Content>
