@@ -154,7 +154,7 @@ namespace WebApplication1.Logics
         {
             try
             {
-                qur = "insert into tbl_ShiftCargo values(@OrderId,@Place,@QuantityOrdered,@ShiftTo,@Capacity,@QuantityInWarehouse)";
+                qur = "insert into tbl_ShiftCargo values(@OrderId,@Place,@QuantityOrdered,@ShiftTo,@Capacity,@QuantityInWarehouse,@DateTime)";
                 cmd = new MySqlCommand(qur, con);                
                 cmd.Parameters.AddWithValue("OrderId", oId);
                 cmd.Parameters.AddWithValue("Place", place);
@@ -162,6 +162,7 @@ namespace WebApplication1.Logics
                 cmd.Parameters.AddWithValue("ShiftTo", shiftTo);
                 cmd.Parameters.AddWithValue("Capacity", capa);
                 cmd.Parameters.AddWithValue("QuantityInWarehouse", quantityInWhouse);
+                cmd.Parameters.AddWithValue("DateTime", DateTime.Today);
                 con.Open();
                 cmd.ExecuteNonQuery();
                 con.Close();
@@ -249,6 +250,23 @@ namespace WebApplication1.Logics
             {
                 dt = new DataTable();
                 qur = "select tbl_ShiftCargo.OrderId,tbl_ShiftCargo.Place,tbl_ShiftCargo.ShiftTo,tbl_Note.Note from tbl_ShiftCargo inner join tbl_Note on tbl_ShiftCargo.OrderId=tbl_Note.OrderId";
+                cmd = new MySqlCommand(qur, con);
+                MySqlDataAdapter = new MySqlDataAdapter(cmd);
+                MySqlDataAdapter.Fill(dt);
+                return dt;
+            }
+            catch (Exception ex)
+            {
+                return dt;
+            }
+        }
+
+        public static DataTable GetPDFData()
+        {
+            try
+            {
+                dt = new DataTable();
+                qur = "select OrderId,QuantityOrdered,DateTime,Place,ShiftTo from tbl_shiftcargo";
                 cmd = new MySqlCommand(qur, con);
                 MySqlDataAdapter = new MySqlDataAdapter(cmd);
                 MySqlDataAdapter.Fill(dt);

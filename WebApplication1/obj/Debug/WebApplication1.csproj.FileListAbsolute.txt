@@ -137,3 +137,8 @@ C:\Users\AE TELELINK\Desktop\Asp.Net_Init\WebApplication1\bin\System.Threading.T
 C:\Users\AE TELELINK\Desktop\Asp.Net_Init\WebApplication1\obj\Debug\WebApplication1.csprojAssemblyReference.cache
 C:\Users\AE TELELINK\Desktop\Asp.Net_Init\WebApplication1\bin\System.Data.SqlClient.dll
 C:\Users\AE TELELINK\Desktop\Asp.Net_Init\WebApplication1\bin\System.Data.SqlClient.xml
+C:\Users\AE TELELINK\Desktop\Asp.Net_Init\WebApplication1\bin\Syncfusion.Compression.Base.dll
+C:\Users\AE TELELINK\Desktop\Asp.Net_Init\WebApplication1\bin\Syncfusion.Licensing.dll
+C:\Users\AE TELELINK\Desktop\Asp.Net_Init\WebApplication1\bin\Syncfusion.Pdf.Base.dll
+C:\Users\AE TELELINK\Desktop\Asp.Net_Init\WebApplication1\bin\Syncfusion.Compression.Base.xml
+C:\Users\AE TELELINK\Desktop\Asp.Net_Init\WebApplication1\bin\Syncfusion.Pdf.Base.xml

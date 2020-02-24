@@ -4,8 +4,8 @@
     <br />
     Order ID : <asp:DropDownList ID="ddlOId" runat="server"></asp:DropDownList>
     <br /><br />
-    Weight : <asp:TextBox ID="TextBox1" runat="server"></asp:TextBox>
+    Weight : <asp:TextBox ID="txtWeight" runat="server"></asp:TextBox>
     <br /><br />
-    <asp:Button ID="Button1" runat="server" Text="Submit" OnClick="Button1_Click" />
+    <asp:Button ID="Button1" runat="server" Text="Generate Pass" OnClick="Button1_Click" />
     <br /><br />
 </asp:Content>

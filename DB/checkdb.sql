@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Feb 24, 2020 at 12:03 PM
+-- Generation Time: Feb 24, 2020 at 01:40 PM
 -- Server version: 10.4.11-MariaDB
 -- PHP Version: 7.4.2
 
@@ -38,7 +38,8 @@ CREATE TABLE `tbl_note` (
 --
 
 INSERT INTO `tbl_note` (`OrderId`, `Note`) VALUES
-(1, '12654654');
+(1, '12654654'),
+(2, '87754');
 
 -- --------------------------------------------------------
 
@@ -72,15 +73,17 @@ CREATE TABLE `tbl_shiftcargo` (
   `QuantityOrdered` int(100) NOT NULL,
   `ShiftTo` varchar(80) NOT NULL,
   `Capacity` int(100) NOT NULL,
-  `QuantityInWarehouse` int(100) NOT NULL
+  `QuantityInWarehouse` int(100) NOT NULL,
+  `DateTime` date NOT NULL DEFAULT current_timestamp()
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
 -- Dumping data for table `tbl_shiftcargo`
 --
 
-INSERT INTO `tbl_shiftcargo` (`OrderId`, `Place`, `QuantityOrdered`, `ShiftTo`, `Capacity`, `QuantityInWarehouse`) VALUES
-(1, 'Gurugram', 15, 'Noida', 20, 800);
+INSERT INTO `tbl_shiftcargo` (`OrderId`, `Place`, `QuantityOrdered`, `ShiftTo`, `Capacity`, `QuantityInWarehouse`, `DateTime`) VALUES
+(1, 'Gurugram', 15, 'Noida', 20, 800, '2020-02-24'),
+(2, 'Delhi', 15, 'Gurugram', 20, 30, '2020-02-24');
 
 -- --------------------------------------------------------
 
@@ -167,7 +170,7 @@ ALTER TABLE `tbl_warehous`
 -- AUTO_INCREMENT for table `tbl_note`
 --
 ALTER TABLE `tbl_note`
-  MODIFY `OrderId` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `OrderId` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- AUTO_INCREMENT for table `tbl_ordercargo`
@@ -179,7 +182,7 @@ ALTER TABLE `tbl_ordercargo`
 -- AUTO_INCREMENT for table `tbl_shiftcargo`
 --
 ALTER TABLE `tbl_shiftcargo`
-  MODIFY `OrderId` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `OrderId` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- AUTO_INCREMENT for table `tbl_user`
