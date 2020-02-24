@@ -13,13 +13,16 @@ namespace WebApplication1
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-            if (Logics.clsSQL.DBConnection())
+            if (!IsPostBack)
             {
-                Response.Write("Connection Made");
-            }
-            else
-            {
-                Response.Write("Connection Failed");
+                if (Logics.clsMySQL.DBConnection())
+                {
+                    Response.Write("Connection Made");
+                }
+                else
+                {
+                    Response.Write("Connection Failed");
+                }
             }
         }
         

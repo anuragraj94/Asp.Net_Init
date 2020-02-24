@@ -25,9 +25,7 @@ namespace WebApplication1.Logics
         {
             try
             {
-                ConString = @"Provider=Microsoft.ACE.OLEDB.12.0;Data Source=C:\Users\AE TELELINK\Desktop\Asp.Net_Init\DB\CheckDB.accdb; Persist Security Info = False; ";
-                //ConString = @"Provider=MySql.Data.MySqlClient;server=localhost;port=3306;userid=root;password=;Database=checkdb";
-                //ConString = @"Provider=MySql.Data.MySqlClient;Server=localhost;port=3307;Database=checkdb;Uid=root;Pwd=;";
+                ConString = @"Provider=Microsoft.ACE.OLEDB.12.0;Data Source=C:\Users\AE TELELINK\Desktop\Asp.Net_Init\DB\CheckDB.accdb; Persist Security Info = False; ";                
                 con = new OleDbConnection(ConString);
                 con.Open();
                 return true;
