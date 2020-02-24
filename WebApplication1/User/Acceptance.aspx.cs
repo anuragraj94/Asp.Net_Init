@@ -21,7 +21,7 @@ namespace WebApplication1.User
         void FillGrid()
         {
             DataTable data;
-            data = Logics.clsDB.GetDataByArra();
+            data = Logics.clsMySQL.GetDataByArra();
             GridView1.DataSource = data;
             GridView1.DataBind();
         }

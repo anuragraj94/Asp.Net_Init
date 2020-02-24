@@ -53,6 +53,9 @@
     <Reference Include="System.Buffers, Version=4.0.2.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
       <HintPath>..\packages\System.Buffers.4.4.0\lib\netstandard2.0\System.Buffers.dll</HintPath>
     </Reference>
+    <Reference Include="System.Data.SqlClient, Version=4.6.1.1, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Data.SqlClient.4.8.1\lib\net461\System.Data.SqlClient.dll</HintPath>
+    </Reference>
     <Reference Include="System.Memory, Version=4.0.1.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
       <HintPath>..\packages\System.Memory.4.5.0\lib\netstandard2.0\System.Memory.dll</HintPath>
     </Reference>
@@ -115,6 +118,10 @@
     <Content Include="Admin\ShiftOrder.aspx" />
     <Content Include="Admin\TraceCargo.aspx" />
     <Content Include="Admin\ViewOrder.aspx" />
+    <Content Include="App_Data\SqlDB.mdf" />
+    <Content Include="App_Data\SqlDB_log.ldf">
+      <DependentUpon>SqlDB.mdf</DependentUpon>
+    </Content>
     <Content Include="Contact.aspx" />
     <Content Include="CSS\style.css" />
     <Content Include="home.aspx" />
@@ -226,7 +233,9 @@
     <Compile Include="home.aspx.designer.cs">
       <DependentUpon>home.aspx</DependentUpon>
     </Compile>
-    <Compile Include="Logics\clsDB.cs" />
+    <Compile Include="Logics\clsAccess.cs" />
+    <Compile Include="Logics\clsMySQL.cs" />
+    <Compile Include="Logics\clsSQL.cs" />
     <Compile Include="Models\clsModel_Users.cs" />
     <Compile Include="Partners.aspx.cs">
       <DependentUpon>Partners.aspx</DependentUpon>
@@ -350,9 +359,7 @@
       <DependentUpon>Web.config</DependentUpon>
     </None>
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="App_Data\" />
-  </ItemGroup>
+  <ItemGroup />
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
     <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>

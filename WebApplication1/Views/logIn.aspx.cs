@@ -13,7 +13,7 @@ namespace WebApplication1
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-            if (Logics.clsDB.DBConnection())
+            if (Logics.clsSQL.DBConnection())
             {
                 Response.Write("Connection Made");
             }
@@ -28,7 +28,7 @@ namespace WebApplication1
             clsModel_Users clsModel_Users = new clsModel_Users();
             clsModel_Users.UserName = txtEmail.Text;
             clsModel_Users.Password = txtPass.Text;
-            if (Logics.clsDB.Login(txtEmail.Text, txtPass.Text))
+            if (Logics.clsMySQL.Login(txtEmail.Text, txtPass.Text))
             {
                 //Response.Write("<br>Login Sucess......!!");
                 Session["Name"] = txtEmail.Text;

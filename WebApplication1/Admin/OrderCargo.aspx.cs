@@ -28,7 +28,7 @@ namespace WebApplication1.Admin
         {
             ddlPlace.Items.Add("--Select--");
             DataTable data;
-            data = Logics.clsDB.GetName();
+            data = Logics.clsMySQL.GetName();
             for (int i = 0; i < data.Rows.Count; i++)
             {
                 string theValue = data.Rows[i].ItemArray[0].ToString();
@@ -40,7 +40,7 @@ namespace WebApplication1.Admin
         {
             try
             {
-                if (Logics.clsDB.OrderCargo(Convert.ToInt32(txtOrderId.Text), Convert.ToInt32(txtQuantity.Text), ddlPlace.SelectedItem.Text))
+                if (Logics.clsMySQL.OrderCargo(Convert.ToInt32(txtOrderId.Text), Convert.ToInt32(txtQuantity.Text), ddlPlace.SelectedItem.Text))
                 {
                     txtOrderId.Text = "";
                     txtQuantity.Text = "";

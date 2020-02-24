@@ -27,7 +27,7 @@ namespace WebApplication1.Admin
                 //string jscript = "<script>alert('YOUR BUTTON HAS BEEN CLICKED')</script>";
                 //System.Type t = this.GetType();
                 //ClientScript.RegisterStartupScript(t, "k", jscript);
-                if (Logics.clsDB.AddWarehouse(Convert.ToInt32(txtId.Text), txtPlace.Text, txtSName.Text, Convert.ToInt32(txtCapacity.Text), Convert.ToInt32(txtMno.Text)))
+                if (Logics.clsMySQL.AddWarehouse(Convert.ToInt32(txtId.Text), txtPlace.Text, txtSName.Text, Convert.ToInt32(txtCapacity.Text), txtMno.Text))
                 {
                     //Response.Write("Added");
                     txtCapacity.Text = "";
@@ -39,7 +39,7 @@ namespace WebApplication1.Admin
                     lblMsg.Text = "Submitted Successfully";
                 }
             }
-            catch (Exception)
+            catch (Exception ex)
             {
                 
             }

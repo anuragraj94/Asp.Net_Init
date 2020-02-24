@@ -27,7 +27,7 @@ namespace WebApplication1.User
             //ddlID.Items.Clear();
             ddlOId.Items.Add("--Select--");
             DataTable data;
-            data = Logics.clsDB.GetOrderId();
+            data = Logics.clsMySQL.GetOrderId();
             for (int i = 0; i < data.Rows.Count; i++)
             {
                 string theValue = data.Rows[i].ItemArray[0].ToString();

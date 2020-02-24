@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data;
 using System.Linq;
 using System.Web;
 using System.Web.UI;
@@ -16,6 +17,14 @@ namespace WebApplication1.Admin
                 Session.Clear();
                 Response.Redirect("../home.aspx");
             }
+            FillGrid();
+        }
+        void FillGrid()
+        {
+            DataTable data;
+            data = Logics.clsMySQL.GetOrder();
+            GridView1.DataSource = data;
+            GridView1.DataBind();
         }
     }
 }

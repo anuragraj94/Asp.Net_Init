@@ -33,7 +33,7 @@ namespace WebApplication1.Admin
         {
             try
             {                
-                if (Logics.clsDB.ShiftCargo(Convert.ToInt32(ddlID.SelectedItem.Text), txtPlace.Text, Convert.ToInt32(txtQuant.Text), ddlPlace.SelectedItem.Text, Convert.ToInt32(txtCapa.Text), Convert.ToInt32(txtQuantInWareh.Text)))
+                if (Logics.clsMySQL.ShiftCargo(Convert.ToInt32(ddlID.SelectedItem.Text), txtPlace.Text, Convert.ToInt32(txtQuant.Text), ddlPlace.SelectedItem.Text, Convert.ToInt32(txtCapa.Text), Convert.ToInt32(txtQuantInWareh.Text)))
                 {
                     lblMsg.Visible = true;
                     ddlID.SelectedItem.Text = "";
@@ -63,7 +63,7 @@ namespace WebApplication1.Admin
             //ddlPlace.Items.Clear();
             ddlPlace.Items.Add("--Select--");
             DataTable data;
-            data = Logics.clsDB.GetName();
+            data = Logics.clsMySQL.GetName();
             for (int i = 0; i < data.Rows.Count; i++)
             {
                 string theValue = data.Rows[i].ItemArray[0].ToString();
@@ -76,7 +76,7 @@ namespace WebApplication1.Admin
             //ddlID.Items.Clear();
             ddlID.Items.Add("--Select--");
             DataTable data;
-            data = Logics.clsDB.GetOrderId();
+            data = Logics.clsMySQL.GetOrderId();
             for (int i = 0; i < data.Rows.Count; i++)
             {
                 string theValue = data.Rows[i].ItemArray[0].ToString();

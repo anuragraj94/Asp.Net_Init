@@ -16,19 +16,30 @@ namespace WebApplication1.User
             {
                 FillDropdownID();
             }
+            lblMsg.Visible = false;
         }
 
         protected void Button1_Click(object sender, EventArgs e)
         {
-            ddlOId.SelectedIndex = 0;
-            txtNote.Text = "";
+            if (Logics.clsMySQL.DamageCargo(Convert.ToInt32(ddlOId.SelectedItem.Text),txtNote.Text))
+            {
+                ddlOId.SelectedIndex = 0;
+                txtNote.Text = "";
+                lblMsg.Visible = true;
+                lblMsg.Text = "Submitted";
+            }
+            else
+            {
+                lblMsg.Visible = true;
+                lblMsg.Text = "Failed";
+            }            
         }
         void FillDropdownID()
         {
             //ddlID.Items.Clear();
             ddlOId.Items.Add("--Select--");
             DataTable data;
-            data = Logics.clsDB.GetOrderId();
+            data = Logics.clsMySQL.GetOrderId();
             for (int i = 0; i < data.Rows.Count; i++)
             {
                 string theValue = data.Rows[i].ItemArray[0].ToString();

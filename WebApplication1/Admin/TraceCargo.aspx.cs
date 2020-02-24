@@ -36,7 +36,7 @@ namespace WebApplication1.Admin
         void GetData()
         {           
             DataTable data;
-            data = Logics.clsDB.GetByOrderID(Convert.ToInt32(txtOrerId.Text));
+            data = Logics.clsMySQL.GetByOrderID(Convert.ToInt32(txtOrerId.Text));
             if (data!=null)
             {
                 if (data.Rows.Count>0)
