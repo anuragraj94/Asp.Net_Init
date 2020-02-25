@@ -142,3 +142,5 @@ C:\Users\AE TELELINK\Desktop\Asp.Net_Init\WebApplication1\bin\Syncfusion.Licensi
 C:\Users\AE TELELINK\Desktop\Asp.Net_Init\WebApplication1\bin\Syncfusion.Pdf.Base.dll
 C:\Users\AE TELELINK\Desktop\Asp.Net_Init\WebApplication1\bin\Syncfusion.Compression.Base.xml
 C:\Users\AE TELELINK\Desktop\Asp.Net_Init\WebApplication1\bin\Syncfusion.Pdf.Base.xml
+C:\Users\AE TELELINK\Desktop\Asp.Net_Init\WebApplication1\bin\itextsharp.dll
+C:\Users\AE TELELINK\Desktop\Asp.Net_Init\WebApplication1\bin\itextsharp.xml
