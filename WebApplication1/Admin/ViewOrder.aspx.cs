@@ -23,7 +23,7 @@ namespace WebApplication1.Admin
         void FillGrid()
         {                     
             DataTable data;
-            data = Logics.clsMySQL.GetShiftCargo();
+            data = Logics.MySqlDb.GetShiftCargo();
             GridView1.DataSource = data;
             GridView1.DataBind();
         }

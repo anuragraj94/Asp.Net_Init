@@ -21,7 +21,7 @@ namespace WebApplication1.User
 
         protected void Button1_Click(object sender, EventArgs e)
         {
-            if (Logics.clsMySQL.DamageCargo(Convert.ToInt32(ddlOId.SelectedItem.Text),txtNote.Text))
+            if (Logics.MySqlDb.DamageCargo(Convert.ToInt32(ddlOId.SelectedItem.Text),txtNote.Text))
             {
                 ddlOId.SelectedIndex = 0;
                 txtNote.Text = "";
@@ -39,7 +39,7 @@ namespace WebApplication1.User
             //ddlID.Items.Clear();
             ddlOId.Items.Add("--Select--");
             DataTable data;
-            data = Logics.clsMySQL.GetOrderId();
+            data = Logics.MySqlDb.GetOrderId();
             for (int i = 0; i < data.Rows.Count; i++)
             {
                 string theValue = data.Rows[i].ItemArray[0].ToString();

@@ -22,7 +22,7 @@ namespace WebApplication1.Admin
         void FillGrid()
         {
             DataTable data;
-            data = Logics.clsMySQL.GetOrder();
+            data = Logics.MySqlDb.GetOrder();
             GridView1.DataSource = data;
             GridView1.DataBind();
         }

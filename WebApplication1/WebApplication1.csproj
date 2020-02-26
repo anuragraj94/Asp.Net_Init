@@ -245,9 +245,9 @@
     <Compile Include="home.aspx.designer.cs">
       <DependentUpon>home.aspx</DependentUpon>
     </Compile>
-    <Compile Include="Logics\clsAccess.cs" />
-    <Compile Include="Logics\clsMySQL.cs" />
-    <Compile Include="Logics\clsSQL.cs" />
+    <Compile Include="Logics\AccessDb.cs" />
+    <Compile Include="Logics\MySqlDb.cs" />
+    <Compile Include="Logics\SqlDb.cs" />
     <Compile Include="Models\clsModel_Users.cs" />
     <Compile Include="Partners.aspx.cs">
       <DependentUpon>Partners.aspx</DependentUpon>
