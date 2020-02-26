@@ -143,3 +143,4 @@ C:\Users\AE TELELINK\Desktop\Asp.Net_Init\WebApplication1\bin\Syncfusion.Compres
 C:\Users\AE TELELINK\Desktop\Asp.Net_Init\WebApplication1\bin\Syncfusion.Pdf.Base.xml
 C:\Users\AE TELELINK\Desktop\Asp.Net_Init\WebApplication1\bin\itextsharp.dll
 C:\Users\AE TELELINK\Desktop\Asp.Net_Init\WebApplication1\bin\itextsharp.xml
+C:\Users\AE TELELINK\Desktop\Asp.Net_Init\WebApplication1\obj\Debug\WebApplication1.csprojAssemblyReference.cache

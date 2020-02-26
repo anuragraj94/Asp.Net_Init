@@ -32,8 +32,19 @@ namespace WebApplication1.Admin
         protected void Button1_Click(object sender, EventArgs e)
         {
             try
-            {                
-                if (Logics.MySqlDb.ShiftCargo(Convert.ToInt32(ddlID.SelectedItem.Text), txtPlace.Text, Convert.ToInt32(txtQuant.Text), ddlPlace.SelectedItem.Text, Convert.ToInt32(txtCapa.Text), Convert.ToInt32(txtQuantInWareh.Text)))
+            {
+                object[] obj = new object[6];
+                obj[0] = ddlID.SelectedItem.Text;
+                obj[1] = txtPlace.Text;
+                obj[2] = txtQuant.Text;
+                obj[3] = ddlPlace.SelectedItem.Text;
+                obj[4] = txtCapa.Text;
+                obj[5] = txtQuantInWareh.Text;
+
+                //if (Logics.MySqlDb.ShiftCargo(Convert.ToInt32(ddlID.SelectedItem.Text), txtPlace.Text, Convert.ToInt32(txtQuant.Text), ddlPlace.SelectedItem.Text, Convert.ToInt32(txtCapa.Text), Convert.ToInt32(txtQuantInWareh.Text)))
+                //if (Logics.MySqlDb.ShiftCargo(obj))
+                Logics.CheckDb check= new Logics.CheckDb();
+                if (check.ShiftCargo(obj))
                 {
                     lblMsg.Visible = true;
                     ddlID.SelectedItem.Text = "";

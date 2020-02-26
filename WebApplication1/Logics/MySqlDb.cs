@@ -152,18 +152,42 @@ namespace WebApplication1.Logics
             }
         }
 
-        public static bool ShiftCargo(int oId, string place, int quant, string shiftTo, int capa, int quantityInWhouse)
+        /* public static bool ShiftCargo(int oId, string place, int quant, string shiftTo, int capa, int quantityInWhouse)
+         {
+             try
+             {
+                 Query = "insert into tbl_ShiftCargo values(@OrderId,@Place,@QuantityOrdered,@ShiftTo,@Capacity,@QuantityInWarehouse,@DateTime)";
+                 Cmd = new MySqlCommand(Query, Con);                
+                 Cmd.Parameters.AddWithValue("OrderId", oId);
+                 Cmd.Parameters.AddWithValue("Place", place);
+                 Cmd.Parameters.AddWithValue("QuantityOrdered", quant);
+                 Cmd.Parameters.AddWithValue("ShiftTo", shiftTo);
+                 Cmd.Parameters.AddWithValue("Capacity", capa);
+                 Cmd.Parameters.AddWithValue("QuantityInWarehouse", quantityInWhouse);
+                 Cmd.Parameters.AddWithValue("DateTime", DateTime.Today);
+                 Con.Open();
+                 Cmd.ExecuteNonQuery();
+                 Con.Close();
+                 return true;
+             }
+             catch (Exception ex)
+             {
+                 Con.Close();
+                 return false;
+             }
+         }*/
+        public static bool ShiftCargo(object[] obj)
         {
             try
             {
                 Query = "insert into tbl_ShiftCargo values(@OrderId,@Place,@QuantityOrdered,@ShiftTo,@Capacity,@QuantityInWarehouse,@DateTime)";
-                Cmd = new MySqlCommand(Query, Con);                
-                Cmd.Parameters.AddWithValue("OrderId", oId);
-                Cmd.Parameters.AddWithValue("Place", place);
-                Cmd.Parameters.AddWithValue("QuantityOrdered", quant);
-                Cmd.Parameters.AddWithValue("ShiftTo", shiftTo);
-                Cmd.Parameters.AddWithValue("Capacity", capa);
-                Cmd.Parameters.AddWithValue("QuantityInWarehouse", quantityInWhouse);
+                Cmd = new MySqlCommand(Query, Con);
+                Cmd.Parameters.AddWithValue("OrderId", Convert.ToInt32(obj[0]));
+                Cmd.Parameters.AddWithValue("Place", obj[1]);
+                Cmd.Parameters.AddWithValue("QuantityOrdered", Convert.ToInt32(obj[2]));
+                Cmd.Parameters.AddWithValue("ShiftTo", obj[3]);
+                Cmd.Parameters.AddWithValue("Capacity", Convert.ToInt32(obj[4]));
+                Cmd.Parameters.AddWithValue("QuantityInWarehouse", Convert.ToInt32(obj[5]));
                 Cmd.Parameters.AddWithValue("DateTime", DateTime.Today);
                 Con.Open();
                 Cmd.ExecuteNonQuery();
@@ -176,7 +200,6 @@ namespace WebApplication1.Logics
                 return false;
             }
         }
-
         public static DataTable GetShiftCargo()
         {
             try
@@ -194,21 +217,32 @@ namespace WebApplication1.Logics
             }
         }
 
-        public static DataTable GetByOrderID(int id)
+        /* public static DataTable GetByOrderID(int id)
+         {
+             try
+             {
+                 DataTable = new DataTable();
+                 Query = "select * from tbl_ShiftCargo where OrderId=" + id + " ";
+                 Cmd = new MySqlCommand(Query, Con);
+                 MySqlDataAdapter = new MySqlDataAdapter(Cmd);
+                 MySqlDataAdapter.Fill(DataTable);
+                 return DataTable;
+             }
+             catch (Exception ex)
+             {
+                 return DataTable;
+             }
+         }*/
+
+        public static DataTable GetByOrderID(object sender)
         {
-            try
-            {
-                DataTable = new DataTable();
-                Query = "select * from tbl_ShiftCargo where OrderId=" + id + " ";
-                Cmd = new MySqlCommand(Query, Con);
-                MySqlDataAdapter = new MySqlDataAdapter(Cmd);
-                MySqlDataAdapter.Fill(DataTable);
-                return DataTable;
-            }
-            catch (Exception ex)
-            {
-                return DataTable;
-            }
+            DataTable = new DataTable();
+            int id = Convert.ToInt32(sender);
+            Query = "select * from tbl_ShiftCargo where OrderId=" + id + " ";
+            Cmd = new MySqlCommand(Query, Con);
+            MySqlDataAdapter = new MySqlDataAdapter(Cmd);
+            MySqlDataAdapter.Fill(DataTable);
+            return DataTable;
         }
 
         public static DataTable GetDataByArra()
@@ -278,6 +312,76 @@ namespace WebApplication1.Logics
             {
                 return DataTable;
             }
+        }
+    }
+
+    public class CheckDb
+    {
+        MySqlConnection Con;
+        MySqlCommand Cmd;
+        MySqlDataReader MySqlDataReader;
+        MySqlDataAdapter MySqlDataAdapter;
+        string ConString, Query;
+        DataTable DataTable;
+
+        string Server;
+        string Database;
+        string Uid;
+        string Password;
+
+
+
+        public bool DbConnection()
+        {
+            try
+            {
+                Server = "localhost";
+                Database = "checkdb";
+                Uid = "root";
+                Password = "";
+
+                ConString = "SERVER=" + Server + ";" + "DATABASE=" +
+                Database + ";" + "UID=" + Uid + ";" + "PASSWORD=" + Password + ";";
+
+                Con = new MySqlConnection(ConString);
+                Con.Open();
+                Con.Close();
+                return true;
+            }
+            catch (Exception ex)
+            {
+                Con.Close();
+                return false;
+            }
+        }
+
+        public bool ShiftCargo(object[] obj)
+        {
+            if (DbConnection())
+            {
+                try
+                {
+                    Query = "insert into tbl_ShiftCargo values(@OrderId,@Place,@QuantityOrdered,@ShiftTo,@Capacity,@QuantityInWarehouse,@DateTime)";
+                    Cmd = new MySqlCommand(Query, Con);
+                    Cmd.Parameters.AddWithValue("OrderId", Convert.ToInt32(obj[0]));
+                    Cmd.Parameters.AddWithValue("Place", obj[1]);
+                    Cmd.Parameters.AddWithValue("QuantityOrdered", Convert.ToInt32(obj[2]));
+                    Cmd.Parameters.AddWithValue("ShiftTo", obj[3]);
+                    Cmd.Parameters.AddWithValue("Capacity", Convert.ToInt32(obj[4]));
+                    Cmd.Parameters.AddWithValue("QuantityInWarehouse", Convert.ToInt32(obj[5]));
+                    Cmd.Parameters.AddWithValue("DateTime", DateTime.Today);
+                    Con.Open();
+                    Cmd.ExecuteNonQuery();
+                    Con.Close();
+                    return true;
+                }
+                catch (Exception ex)
+                {
+                    Con.Close();
+                    return false;
+                }                
+            }
+            return false;
         }
     }
 }
