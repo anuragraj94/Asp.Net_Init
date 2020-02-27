@@ -27,7 +27,7 @@ namespace WebApplication1.Admin
                 GetData();
                 txtOrerId.Text = "";
             }
-            catch (Exception)
+            catch (Exception ex)
             {
                 
             }
@@ -41,6 +41,11 @@ namespace WebApplication1.Admin
             data = Logics.MySqlDb.GetByOrderID(obj);
             if (data!=null)
             {
+                data.Columns.Add("Weight", typeof(int));
+                data.Rows[0]["Weight"] = "50";
+                data.Columns.Clear();
+                data.Rows.Clear();
+                data = table();
                 if (data.Rows.Count>0)
                 {
                     GridView1.DataSource = data;
@@ -55,5 +60,18 @@ namespace WebApplication1.Admin
                 }
             }             
         }
+
+        public DataTable table()
+        {
+            DataTable table = new DataTable("Product");
+            table.Columns.Add("Product_id", typeof(int));
+            table.Columns.Add("Product_name", typeof(string));
+            table.Columns.Add("Product_price", typeof(string));
+
+            table.Rows.Add(1, "abc", "100");
+            table.Rows.Add(2, "xyz", "200");
+            return table;
+        }
+
     }
 }
