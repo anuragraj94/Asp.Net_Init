@@ -27,7 +27,7 @@ namespace CheckMVC.Controllers
         }
         public ActionResult LogOut()
         {
-            return View();
+            return RedirectToAction("Home", "Default");
         }
     }
 }
