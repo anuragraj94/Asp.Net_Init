@@ -49,7 +49,6 @@ C:\Users\AE TELELINK\Desktop\Asp.Net_Init\PrepareTemplate\bin\roslyn\VBCSCompile
 C:\Users\AE TELELINK\Desktop\Asp.Net_Init\PrepareTemplate\bin\roslyn\VBCSCompiler.exe.config
 C:\Users\AE TELELINK\Desktop\Asp.Net_Init\PrepareTemplate\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll
 C:\Users\AE TELELINK\Desktop\Asp.Net_Init\PrepareTemplate\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.xml
-C:\Users\AE TELELINK\Desktop\Asp.Net_Init\PrepareTemplate\obj\Debug\PrepareTemplate.csprojAssemblyReference.cache
 C:\Users\AE TELELINK\Desktop\Asp.Net_Init\PrepareTemplate\obj\Debug\PrepareTemplate.csproj.CoreCompileInputs.cache
 C:\Users\AE TELELINK\Desktop\Asp.Net_Init\PrepareTemplate\obj\Debug\PrepareTemplate.csproj.CopyComplete
 C:\Users\AE TELELINK\Desktop\Asp.Net_Init\PrepareTemplate\obj\Debug\PrepareTemplate.dll
