@@ -172,7 +172,7 @@
     <Content Include="Views\Admin\TraceCargo.cshtml" />
     <Content Include="Views\Admin\Reorder.cshtml" />
     <Content Include="Views\Default\Create.cshtml" />
-    <Content Include="Views\Default\Show.cshtml" />
+    <Content Include="Views\Default\Serial.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
