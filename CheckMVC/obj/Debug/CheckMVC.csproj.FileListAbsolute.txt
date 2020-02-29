@@ -78,4 +78,11 @@ C:\Users\AE TELELINK\Desktop\Asp.Net_Init\CheckMVC\obj\Debug\CheckMVC.csproj.Cor
 C:\Users\AE TELELINK\Desktop\Asp.Net_Init\CheckMVC\obj\Debug\CheckMVC.csproj.CopyComplete
 C:\Users\AE TELELINK\Desktop\Asp.Net_Init\CheckMVC\obj\Debug\CheckMVC.dll
 C:\Users\AE TELELINK\Desktop\Asp.Net_Init\CheckMVC\obj\Debug\CheckMVC.pdb
+C:\Users\AE TELELINK\Desktop\Asp.Net_Init\CheckMVC\bin\Antlr3.Runtime.dll
+C:\Users\AE TELELINK\Desktop\Asp.Net_Init\CheckMVC\bin\Newtonsoft.Json.dll
+C:\Users\AE TELELINK\Desktop\Asp.Net_Init\CheckMVC\bin\System.Web.Optimization.dll
+C:\Users\AE TELELINK\Desktop\Asp.Net_Init\CheckMVC\bin\WebGrease.dll
+C:\Users\AE TELELINK\Desktop\Asp.Net_Init\CheckMVC\bin\Antlr3.Runtime.pdb
+C:\Users\AE TELELINK\Desktop\Asp.Net_Init\CheckMVC\bin\Newtonsoft.Json.xml
+C:\Users\AE TELELINK\Desktop\Asp.Net_Init\CheckMVC\bin\System.Web.Optimization.xml
 C:\Users\AE TELELINK\Desktop\Asp.Net_Init\CheckMVC\obj\Debug\CheckMVC.csprojAssemblyReference.cache
