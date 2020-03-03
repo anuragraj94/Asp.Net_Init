@@ -1,6 +1,6 @@
 ﻿
 @{
-    ViewBag.Title = "AddWareHouse";
+    ViewBag.Title = "Add Warehouse";
     Layout = "~/Views/Shared/_AdminLayout.cshtml";
 }
 
@@ -42,7 +42,7 @@
     </div>*@
     <div class="card">
         <div class="card-header text-center">
-            <h2>Addware House</h2>
+            <h2>Add warehouse</h2>
         </div>
         <div class="card-body">
             <div class="container h-100">
@@ -50,27 +50,27 @@
                     <div class="col-10 col-md-8 col-lg-6">
                         <!-- Form -->
                         @*<form class="form-example" action="" method="post">*@
-                        @using (Html.BeginForm("logIn", "Default", FormMethod.Post))
+                        @using (Html.BeginForm("AddWareHouse", "Admin", FormMethod.Post))
                         {
                     <!-- Input fields -->
                         <div class="form-group">
                             @*<label for="username">Username:</label>*@
                             @*<input type="text" class="form-control username" id="username" placeholder="Username..." name="username">*@
-                            <input type="text" name="name" value="" placeholder="ID" class="form-control" />
+                            <input type="text" name="ID" value="" required placeholder="ID" class="form-control" />
                         </div>
                         <div class="form-group">
                             @*<label for="password">Password:</label>*@
                             @*<input type="password" class="form-control password" id="password" placeholder="Password..." name="password">*@
-                            <input type="text" name="name" value="" placeholder="Place" class="form-control" />
+                            <input type="text" name="Place" value="" required placeholder="Place" class="form-control" />
                         </div>
                         <div class="form-group">
-                            <input type="text" name="name" value="" placeholder="Supervisor Name" class="form-control" />
+                            <input type="text" name="SupervisorName" value="" required placeholder="Supervisor Name" class="form-control" />
                         </div>
                         <div class="form-group">
-                            <input type="text" name="name" value="" placeholder="Capacity" class="form-control" />
+                            <input type="text" name="Capacity" value="" required placeholder="Capacity" class="form-control" />
                         </div>
                         <div class="form-group">
-                            <input type="text" name="name" value="" placeholder="Mobile Number" class="form-control" />
+                            <input type="text" name="MobileNumber" value="" required placeholder="Mobile Number" class="form-control" />
                         </div>
                         @*<button type="submit" class="btn btn-primary btn-customized">Login</button>*@
 
@@ -80,11 +80,9 @@
                             </div>
                         </div>
                         <!-- End input fields -->                        
-                        <div class="text-center">
-                            <!--
-                                This is for Message
-                             -->
-                        </div>
+                    <div class="text-center">
+                        <h6>@TempData["msg"]</h6>
+                    </div>
                         }
                         @*</form>*@
                         <!-- Form end -->

@@ -149,6 +149,10 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="Models\clsModel_AddwareHouse.cs" />
+    <Compile Include="Models\clsModel_OrderCargo.cs" />
+    <Compile Include="Models\clsModel_ShiftOrder.cs" />
+    <Compile Include="Models\clsModel_Trace.cs" />
     <Compile Include="Models\logIn.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
@@ -196,6 +200,12 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\WebApplication1\WebApplication1.csproj">
+      <Project>{15AE7CC2-85E9-423A-B37B-D37D7D4929C1}</Project>
+      <Name>WebApplication1</Name>
+    </ProjectReference>
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

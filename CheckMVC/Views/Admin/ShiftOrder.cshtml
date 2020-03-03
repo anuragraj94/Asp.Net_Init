@@ -1,6 +1,6 @@
 ﻿
 @{
-    ViewBag.Title = "ShiftOrder";
+    ViewBag.Title = "Shift Order";
     Layout = "~/Views/Shared/_AdminLayout.cshtml";
 }
 
@@ -14,27 +14,35 @@
                 <div class="col-10 col-md-8 col-lg-6">
                     <!-- Form -->
                     @*<form class="form-example" action="" method="post">*@
-                    @using (Html.BeginForm("logIn", "Default", FormMethod.Post))
+                    @using (Html.BeginForm("ShiftOrder", "Admin", FormMethod.Post))
                     {
                         <!-- Input fields -->
                         <div class="form-group">
                             @*<label for="username">Username:</label>*@
                             @*<input type="text" class="form-control username" id="username" placeholder="Username..." name="username">*@
-                            <input type="text" name="name" value="" placeholder="ID" class="form-control" />
+                            @*<input type="text" name="name" value="" placeholder="ID" class="form-control" />*@
+                            <select class="form-control" id="OrderId" name="OrderId">
+                                <option>Select Order ID</option>
+                                <option>1</option>
+                                <option>2</option>
+                            </select>
                         </div>
                         <div class="form-group">
                             @*<label for="password">Password:</label>*@
                             @*<input type="password" class="form-control password" id="password" placeholder="Password..." name="password">*@
-                            <input type="text" name="name" value="" placeholder="Place" class="form-control" />
+                            <input type="text" name="ShiftFrom" value="" required placeholder="Shift From" class="form-control" />
                         </div>
                         <div class="form-group">
-                            <input type="text" name="name" value="" placeholder="Supervisor Name" class="form-control" />
+                            <input type="text" name="QuantityOrdered" value="" required placeholder="Quantity Ordered" class="form-control" />
                         </div>
                         <div class="form-group">
-                            <input type="text" name="name" value="" placeholder="Capacity" class="form-control" />
+                            <input type="text" name="ShiftTo" value="" required placeholder="Shift To" class="form-control" />
                         </div>
                         <div class="form-group">
-                            <input type="text" name="name" value="" placeholder="Mobile Number" class="form-control" />
+                            <input type="text" name="Capacity" value="" required placeholder="Capacity" class="form-control" />
+                        </div>
+                        <div class="form-group">
+                            <input type="text" name="QuantityInWarehouse" value="" required placeholder="Quantity In Warehouse" class="form-control" />
                         </div>
                         @*<button type="submit" class="btn btn-primary btn-customized">Login</button>*@
 
@@ -45,9 +53,7 @@
                         </div>
                         <!-- End input fields -->
                         <div class="text-center">
-                            <!--
-                                This is for Message
-                             -->
+                            <h6>@TempData["msg"]</h6>
                         </div>
                     }
                     @*</form>*@

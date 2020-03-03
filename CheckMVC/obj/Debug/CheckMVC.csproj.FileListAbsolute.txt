@@ -64,7 +64,11 @@ C:\Users\AE TELELINK\Desktop\Asp.Net_Init\CheckMVC\bin\System.Web.Razor.dll
 C:\Users\AE TELELINK\Desktop\Asp.Net_Init\CheckMVC\bin\System.Web.Webpages.Deployment.dll
 C:\Users\AE TELELINK\Desktop\Asp.Net_Init\CheckMVC\bin\System.Web.Webpages.dll
 C:\Users\AE TELELINK\Desktop\Asp.Net_Init\CheckMVC\bin\System.Web.Webpages.Razor.dll
+C:\Users\AE TELELINK\Desktop\Asp.Net_Init\CheckMVC\bin\WebApplication1.dll
 C:\Users\AE TELELINK\Desktop\Asp.Net_Init\CheckMVC\bin\WebGrease.dll
+C:\Users\AE TELELINK\Desktop\Asp.Net_Init\CheckMVC\bin\itextsharp.dll
+C:\Users\AE TELELINK\Desktop\Asp.Net_Init\CheckMVC\bin\WebApplication1.pdb
+C:\Users\AE TELELINK\Desktop\Asp.Net_Init\CheckMVC\bin\WebApplication1.dll.config
 C:\Users\AE TELELINK\Desktop\Asp.Net_Init\CheckMVC\bin\Antlr3.Runtime.pdb
 C:\Users\AE TELELINK\Desktop\Asp.Net_Init\CheckMVC\bin\MySqlConnector.xml
 C:\Users\AE TELELINK\Desktop\Asp.Net_Init\CheckMVC\bin\Newtonsoft.Json.xml
@@ -81,8 +85,9 @@ C:\Users\AE TELELINK\Desktop\Asp.Net_Init\CheckMVC\bin\System.Web.Webpages.Razor
 C:\Users\AE TELELINK\Desktop\Asp.Net_Init\CheckMVC\bin\System.Web.Helpers.xml
 C:\Users\AE TELELINK\Desktop\Asp.Net_Init\CheckMVC\bin\System.Web.Mvc.xml
 C:\Users\AE TELELINK\Desktop\Asp.Net_Init\CheckMVC\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.xml
+C:\Users\AE TELELINK\Desktop\Asp.Net_Init\CheckMVC\bin\itextsharp.xml
+C:\Users\AE TELELINK\Desktop\Asp.Net_Init\CheckMVC\obj\Debug\CheckMVC.csprojAssemblyReference.cache
 C:\Users\AE TELELINK\Desktop\Asp.Net_Init\CheckMVC\obj\Debug\CheckMVC.csproj.CoreCompileInputs.cache
 C:\Users\AE TELELINK\Desktop\Asp.Net_Init\CheckMVC\obj\Debug\CheckMVC.csproj.CopyComplete
 C:\Users\AE TELELINK\Desktop\Asp.Net_Init\CheckMVC\obj\Debug\CheckMVC.dll
 C:\Users\AE TELELINK\Desktop\Asp.Net_Init\CheckMVC\obj\Debug\CheckMVC.pdb
-C:\Users\AE TELELINK\Desktop\Asp.Net_Init\CheckMVC\obj\Debug\CheckMVC.csprojAssemblyReference.cache

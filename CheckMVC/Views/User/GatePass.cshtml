@@ -1,8 +1,57 @@
 ﻿
 @{
-    ViewBag.Title = "GatePass";
+    ViewBag.Title = "Gate Pass";
     Layout = "~/Views/Shared/_UserLayout.cshtml";
 }
 
-<h2>GatePass</h2>
+
+
+<div class="card">
+    <div class="card-header text-center">
+        <h2>Gate Pass</h2>
+    </div>
+    <div class="card-body">
+        <div class="container h-100">
+            <div class="row h-100 justify-content-center align-items-center">
+                <div class="col-10 col-md-8 col-lg-6">
+                    <!-- Form -->
+                    @*<form class="form-example" action="" method="post">*@
+                    @using (Html.BeginForm("GatePass", "User", FormMethod.Post))
+                    {
+                        <!-- Input fields -->
+                    <div class="form-group">
+                        <select class="form-control" id="OrderId" name="Order Id">
+                            <option>Select Order Id</option>
+                            <option>1</option>
+                            <option>2</option>
+                        </select>
+                    </div>                     
+                        <div class="form-group">
+                            <input type="text" name="Weight" value="" required placeholder="Weight" class="form-control" />
+                        </div>                        
+                        @*<button type="submit" class="btn btn-primary btn-customized">Login</button>*@
+
+                        <div class="text-center">
+                            <div class="form-group">
+                                <input type="submit" name="name" value="Submit" class="btn btn-primary" />
+                            </div>
+                        </div>
+                        <!-- End input fields -->
+                        <div class="text-center">
+                            <!--
+                                This is for Message
+                             -->
+                        </div>
+                    }
+                    @*</form>*@
+                    <!-- Form end -->
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<br />
+
+
 

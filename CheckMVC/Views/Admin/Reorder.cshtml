@@ -5,56 +5,51 @@
 }
 
 
+
 <div class="card">
     <div class="card-header text-center">
         <h2>Reorder</h2>
     </div>
     <div class="card-body">
         <div class="container h-100">
-            <div class="row h-100 justify-content-center align-items-center">
-                <div class="col-10 col-md-8 col-lg-6">
-                    <!-- Form -->
-                    @*<form class="form-example" action="" method="post">*@
-                    @using (Html.BeginForm("logIn", "Default", FormMethod.Post))
-                    {
-                        <!-- Input fields -->
-                        <div class="form-group">
-                            @*<label for="username">Username:</label>*@
-                            @*<input type="text" class="form-control username" id="username" placeholder="Username..." name="username">*@
-                            <input type="text" name="name" value="" placeholder="ID" class="form-control" />
-                        </div>
-                        <div class="form-group">
-                            @*<label for="password">Password:</label>*@
-                            @*<input type="password" class="form-control password" id="password" placeholder="Password..." name="password">*@
-                            <input type="text" name="name" value="" placeholder="Place" class="form-control" />
-                        </div>
-                        <div class="form-group">
-                            <input type="text" name="name" value="" placeholder="Supervisor Name" class="form-control" />
-                        </div>
-                        <div class="form-group">
-                            <input type="text" name="name" value="" placeholder="Capacity" class="form-control" />
-                        </div>
-                        <div class="form-group">
-                            <input type="text" name="name" value="" placeholder="Mobile Number" class="form-control" />
-                        </div>
-                        @*<button type="submit" class="btn btn-primary btn-customized">Login</button>*@
+            @using (Html.BeginForm("Reorder", "Admin", FormMethod.Post))
+            {
 
-                        <div class="text-center">
-                            <div class="form-group">
-                                <input type="submit" name="name" value="Submit" class="btn btn-primary" />
-                            </div>
-                        </div>
-                        <!-- End input fields -->
-                        <div class="text-center">
-                            <!--
-                                This is for Message
-                             -->
-                        </div>
-                    }
-                    @*</form>*@
-                    <!-- Form end -->
-                </div>
-            </div>
+
+                //}
+                <br />
+                <table class="table">
+                    <caption>List of users</caption>
+                    <thead>
+                        <tr>
+                            <th scope="col">#</th>
+                            <th scope="col">First</th>
+                            <th scope="col">Last</th>
+                            <th scope="col">Handle</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <th scope="row">1</th>
+                            <td>Mark</td>
+                            <td>Otto</td>
+                            <td>1212</td>
+                        </tr>
+                        <tr>
+                            <th scope="row">2</th>
+                            <td>Jacob</td>
+                            <td>Thornton</td>
+                            <td>12121</td>
+                        </tr>
+                        <tr>
+                            <th scope="row">3</th>
+                            <td>Larry</td>
+                            <td>the Bird</td>
+                            <td>12121</td>
+                        </tr>
+                    </tbody>
+                </table>
+            }
         </div>
     </div>
 </div>

@@ -1,6 +1,7 @@
-﻿
+﻿@using System.Data
+@model DataTable
 @{
-    ViewBag.Title = "TraceCargo";
+    ViewBag.Title = "Trace Cargo";
     Layout = "~/Views/Shared/_AdminLayout.cshtml";
 }
 
@@ -11,89 +12,51 @@
     </div>
     <div class="card-body">
         <div class="container h-100">
-            <div class="row h-100 justify-content-center align-items-center">
-                <div class="col-10 col-md-8 col-lg-6">
-                    @using (Html.BeginForm("logIn", "Default", FormMethod.Post))
-                    {
+            @using (Html.BeginForm("TraceCargo", "Admin", FormMethod.Post))
+            {
+                <div class="row h-100 justify-content-center align-items-center">
+                    <div class="col-10 col-md-8 col-lg-6">
+
                         <div class="input-group">
-                            <input type="text" class="form-control" placeholder="Search this blog">
+                            <input type="text" class="form-control" required placeholder="Trace Cargo">
                             <div class="input-group-append">
-                                <button class="btn btn-secondary" type="button">
+                                <button class="btn btn-secondary" type="submit">
                                     <i class="fa fa-search"></i>
                                 </button>
                             </div>
                         </div>
-                        @*<div class="card">
-                        <div class="card-body">
-                            <table class="table">
-                                <caption>List of users</caption>
-                                <thead>
-                                    <tr>
-                                        <th scope="col">#</th>
-                                        <th scope="col">First</th>
-                                        <th scope="col">Last</th>
-                                        <th scope="col">Handle</th>
-                                    </tr>
-                                </thead>
-                                <tbody>
-                                    <tr>
-                                        <th scope="row">1</th>
-                                        <td>Mark</td>
-                                        <td>Otto</td>
-                                        <td>1212</td>
-                                    </tr>
-                                    <tr>
-                                        <th scope="row">2</th>
-                                        <td>Jacob</td>
-                                        <td>Thornton</td>
-                                        <td>12121</td>
-                                    </tr>
-                                    <tr>
-                                        <th scope="row">3</th>
-                                        <td>Larry</td>
-                                        <td>the Bird</td>
-                                        <td>12121</td>
-                                    </tr>
-                                </tbody>
-                            </table>
-                        </div>
-                    </div>*@
 
-                    }
+
+                        @*//}*@
+                    </div>
                 </div>
-            </div>
-            <br />
-            <table class="table">
-                <caption>List of users</caption>
-                <thead>
-                    <tr>
-                        <th scope="col">#</th>
-                        <th scope="col">First</th>
-                        <th scope="col">Last</th>
-                        <th scope="col">Handle</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr>
-                        <th scope="row">1</th>
-                        <td>Mark</td>
-                        <td>Otto</td>
-                        <td>1212</td>
-                    </tr>
-                    <tr>
-                        <th scope="row">2</th>
-                        <td>Jacob</td>
-                        <td>Thornton</td>
-                        <td>12121</td>
-                    </tr>
-                    <tr>
-                        <th scope="row">3</th>
-                        <td>Larry</td>
-                        <td>the Bird</td>
-                        <td>12121</td>
-                    </tr>
-                </tbody>
-            </table>
+                <table class="table">
+                    @*<caption>List of users</caption>*@
+                    <thead>
+                        <tr>
+                            <th scope="col">Order Id </th>
+                            <th scope="col">Shift From</th>
+                            <th scope="col">Quantity Ordered</th>
+                            <th scope="col">Shift To</th>
+                            <th scope="col">Capacity</th>
+                            <th scope="col">QuantityInWarehouse</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @foreach (DataRow row in Model.Rows)
+                        {
+                            <tr>
+                                <td>@row["OrderId "]</td>
+                                <td>@row["ShiftFrom"]</td>
+                                <td>@row["QuantityOrdered"]</td>
+                                <td>@row["ShiftTo"]</td>
+                                <td>@row["Capacity"]</td>
+                                <td>@row["QuantityInWarehouse"]</td>
+                            </tr>
+                        }
+                    </tbody>
+                </table>
+            }
         </div>
     </div>
 </div>
