@@ -175,11 +175,20 @@ namespace CheckMVC.Controllers
                 if (DbConnection())
                 {
                     dataTable2 = new DataTable();
-                    //Query = "select * from tbl_shiftorder where ="+data.Id+"";
-                    Query = "select * from tbl_shiftorder";
+                    Query = "select * from tbl_shiftorder where OrderId =" + data.Id+"";
+                    //Query = "select * from tbl_shiftorder";
                     Cmd = new MySqlCommand(Query, Con);
                     MySqlDataAdapter = new MySqlDataAdapter(Cmd);
-                    MySqlDataAdapter.Fill(dataTable1);
+                    MySqlDataAdapter.Fill(dataTable2);
+                    if (dataTable2.Rows.Count>0)
+                    {
+                        return View(dataTable2);
+                    }
+                    else
+                    {
+                        TempData["msg"] = "Data Not Available";
+                        return View();
+                    }
                 }
             }
             catch (Exception ex)

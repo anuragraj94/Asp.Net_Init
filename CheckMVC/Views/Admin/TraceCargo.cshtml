@@ -18,19 +18,19 @@
                     <div class="col-10 col-md-8 col-lg-6">
 
                         <div class="input-group">
-                            <input type="text" class="form-control" required placeholder="Trace Cargo">
+                            <input type="text" class="form-control" name="Id" required placeholder="Trace Cargo">
                             <div class="input-group-append">
                                 <button class="btn btn-secondary" type="submit">
                                     <i class="fa fa-search"></i>
                                 </button>
                             </div>
                         </div>
-
-
+                        @if (Model == null) { return; }
+                        <br />
                         @*//}*@
                     </div>
                 </div>
-                <table class="table">
+                <table class="table table-bordered text-center">
                     @*<caption>List of users</caption>*@
                     <thead>
                         <tr>
@@ -43,10 +43,11 @@
                         </tr>
                     </thead>
                     <tbody>
+
                         @foreach (DataRow row in Model.Rows)
                         {
                             <tr>
-                                <td>@row["OrderId "]</td>
+                                <td>@row["OrderId"]</td>
                                 <td>@row["ShiftFrom"]</td>
                                 <td>@row["QuantityOrdered"]</td>
                                 <td>@row["ShiftTo"]</td>
@@ -62,4 +63,5 @@
 </div>
 
 <br />
+@TempData["msg"]
 
