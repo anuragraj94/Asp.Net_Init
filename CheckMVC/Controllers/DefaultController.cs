@@ -1,4 +1,5 @@
-﻿using MySql.Data.MySqlClient;
+﻿using CheckMVC.Models;
+using MySql.Data.MySqlClient;
 using System;
 using System.Collections.Generic;
 using System.Data;
@@ -242,6 +243,43 @@ namespace CheckMVC.Controllers
                 //LCP.err_writer.Write("port_DataReceived : " + ex.Message + "\r\nSource: " + ex.Source + "\r\nTrace: " + ex.StackTrace + "\r\n");
             }
         }
+        DataTable dataTable1;
+        public ActionResult AjaxCheck()
+        {
+            return View();
+        }
+       [HttpPost]
+        public JsonResult TblValidation()
+        {
+            try
+            {
+                List<clsModel_AddwareHouse> lst = new List<clsModel_AddwareHouse>();
+                clsModel_AddwareHouse modelData = new clsModel_AddwareHouse();
+                if (DbConnection())
+                {
+                    dataTable1 = new DataTable();                    
+                    Query = "select * from tbl_warehous";
+                    Cmd = new MySqlCommand(Query, Con);
+                    MySqlDataAdapter = new MySqlDataAdapter(Cmd);
+                    MySqlDataAdapter.Fill(dataTable1);
+                    for (int i = 0; i < dataTable1.Rows.Count; i++)
+                    {
+                        modelData.ID = Convert.ToInt32(dataTable1.Rows[i]["Warehouse Id"]);
+                        modelData.Place = dataTable1.Rows[i]["Place"].ToString();
+                        modelData.SupervisorName = dataTable1.Rows[i]["SupervisorName"].ToString();
+                        modelData.Capacity = dataTable1.Rows[i]["Capacity"].ToString();
+                        modelData.MobileNumber = dataTable1.Rows[i]["MobileNumber"].ToString();
+                        lst.Add(modelData);
+                    }
+                    return Json(lst);
+                }
+            }
+            catch (Exception ex)
+            {
 
+            }
+            return Json(null);
+        }
+      
     }
 }

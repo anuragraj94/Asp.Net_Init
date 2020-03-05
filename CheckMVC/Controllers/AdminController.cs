@@ -2,6 +2,7 @@
 using MySql.Data.MySqlClient;
 using System;
 using System.Collections.Generic;
+using System.Configuration;
 using System.Data;
 using System.Linq;
 using System.Web;
@@ -24,7 +25,7 @@ namespace CheckMVC.Controllers
         private string Uid;
         private string Password;
 
-
+        
         public bool DbConnection()
         {
             try
@@ -37,7 +38,9 @@ namespace CheckMVC.Controllers
                 ConString = "SERVER=" + Server + ";" + "DATABASE=" +
                 Database + ";" + "UID=" + Uid + ";" + "PASSWORD=" + Password + ";";
 
+                //var Connetion = ConfigurationManager.ConnectionStrings["ConString1"].ConnectionString;
                 Con = new MySqlConnection(ConString);
+                //Con = new MySqlConnection(Connetion);
                 Con.Open();
                 Con.Close();
                 return true;

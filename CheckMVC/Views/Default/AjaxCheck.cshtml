@@ -1,0 +1,63 @@
+﻿@{
+    ViewBag.Title = "Ajax Check";
+    Layout = "~/Views/Shared/_Main.cshtml";
+}
+
+<div class="card">
+    <div class="card-header text-center">
+        <h2>Ajax Check</h2>
+    </div>
+    <div class="card-body">
+        <div class="container h-100">
+            <table class="table table-bordered text-center" id="tableData">
+                @*<caption>List of users</caption>*@
+                <thead>
+                    <tr>
+                        <th scope="col">ID</th>
+                        <th scope="col">Place</th>
+                        <th scope="col">Supervisor Name</th>
+                        <th scope="col">Capacity</th>
+                        <th scope="col">Mobile Number</th>
+                    </tr>
+                </thead>
+                <tbody>                                                  
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
+
+<br />
+
+<script src="~/Content/js/jQuery.js"></script>
+<script>
+   $(document).ready(function () {
+    fun();
+});
+          
+    function fun() {       
+         $.ajax({
+            type: "POST",            
+             url: '@Url.Action("TblValidation")',
+            contentType: "application/json; charset=utf-8",
+            data: {  },
+            dataType: "json",
+             success: function (data) {                 
+                 var items = '';
+                  $.each(data, function (i, item) {
+                        var rows = "<tr>"
+                            + "<td>" + item.ID + "</td>"
+                            + "<td>" + item.Place + "</td>"
+                            + "<td>" + item.SupervisorName + "</td>"
+                            + "<td>" + item.Capacity + "</td>"
+                            + "<td>" + item.MobileNumber + "</td>"
+                            + "</tr>";
+                        $('#tableData tbody').append(rows);
+                  })
+                 //alert('Success');
+             }
+
+        });
+    }
+        
+</script>
