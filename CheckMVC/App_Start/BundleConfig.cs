@@ -10,22 +10,15 @@ namespace CheckMVC.App_Start
     {
         public static void RegisterBundles(BundleCollection bundles)
         {
-            /*// create an object of ScriptBundle and 
-            // specify bundle name (as virtual path) as constructor parameter 
-            ScriptBundle scriptBndl = new ScriptBundle("~/bundles/bootstrap");
-
-
-            //use Include() method to add all the script files with their paths 
+            /*----------------- JS Added ----------------------*/            
+            ScriptBundle scriptBndl = new ScriptBundle("~/bundles/js");            
             scriptBndl.Include(
-                                "~/Scripts/bootstrap.js",
-                                "~/Scripts/respond.js"
+                                "~/Content/js/jQuery.js"                                
                               );
-
-
             //Add the bundle into BundleCollection
-            bundles.Add(scriptBndl);
+            bundles.Add(scriptBndl);            
 
-            BundleTable.EnableOptimizations = true;*/
+            /*----------------- CSS Added ----------------------*/
 
             bundles.Add(new StyleBundle("~/bundles/css").Include(
                 "~/Content/vendor/bootstrap/css/bootstrap.min.css",
