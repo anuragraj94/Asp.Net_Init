@@ -1,9 +1,8 @@
-﻿@model CheckMVC.Models.logIn
-
+﻿
 @{
-    Layout = null;
+   /* ViewBag.Title = "Check";
+    Layout = "~/Views/Shared/_Main.cshtml";*/
 }
-
 
 <!DOCTYPE html>
 
@@ -13,14 +12,15 @@
     <title>Log In</title>
     <link href="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
     <script src="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"></script>
-    <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    @*<script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>*@
 
+<script src="~/Content/js/jQuery.js"></script>
+@*<script src="~/Content/js/JqueryValidation.js"></script>*@
     <link href="~/Content/css/logIn.css" rel="stylesheet" />
 </head>
 <body>
 
-    @using (Html.BeginForm("logIn", "Default", FormMethod.Post))
-    {
+    <form action="#" id="frmValid1" method="post">
         <div id="login">
             @*<h3 class="text-center text-white pt-5">Login form</h3>*@
             <div class="container">
@@ -34,20 +34,18 @@
                                         <h3 class="text-center text-info">Login</h3>
                                         <div class="form-group">
                                             @*<label for="username" class="text-info">Username:</label>*@<br>
-                                            @*<input type="text" name="username" id="username" class="form-control">*@
-                                            @Html.TextBoxFor(model => model.UserName, new { @class = "form-control" ,placeholder="User Name",required="required"})
+                                            <input type="text" name="UserName" id="UserName" class="form-control" required placeholder="User Name">
                                         </div>
                                         <div class="form-group">
                                             @*<label for="password" class="text-info">Password:</label>*@<br>
-                                            @*<input type="text" name="password" id="password" class="form-control">*@
+                                            <input type="password" name="Password" id="Password" class="form-control" required placeholder="Password">
                                             @*@Html.TextBoxFor(model => model.Password, new { autocomplete = "off", @class = "form-control" })*@
-                                            @Html.EditorFor(Model => Model.Password, new { htmlattributes=new {@class="form-control", placeholder="Password",@type = "password",required="required"}})
                                         </div>
                                         <div class="form-group">
                                             <label for="remember-me" class="text-info"><span>Remember me</span> <span><input id="remember-me" name="remember-me" type="checkbox"></span></label><br>
-                                                                                                                                                                                                <div class="text-center">
-                                                                                                                                                                                                    <input type="submit" name="submit" class="btn btn-info btn-md" value="submit">
-                                                                                                                                                                                                </div>
+                                            <div class="text-center">
+                                                <input type="submit" name="submit" onclick="fun2()" class="btn btn-info btn-md" value="submit">
+                                            </div>
                                         </div>
                                         <div id="register-link" class="text-right">
                                             @*<a href="#" class="text-info">Register here</a>*@
@@ -62,7 +60,58 @@
                 </div>
             </div>
         </div>
+    </form>
+    <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+    <script>
+//   $(document).ready(function () {
+//    fun();
+//});
+    //$(#frmValid1).frmValid1();
+
+    function fun() {
+        if ($("form")[0].checkValidity()) {
+            var txt1 = $("#UserName").val();
+            var txt2 = $("#Password").val();
+            $.ajax({
+                type: "GET",
+                url: '@Url.Action("CH")',
+                contentType: "application/json; charset=utf-8",
+                cache: false,
+                data: {field1: txt1, field2 : txt2},
+                dataType: "json",
+                success: function (response) {
+                    if (response.success) {
+                        alert('Success');
+                        fun2();
+                    } else {
+                        alert("Else part");
+                    }
+                    fun2();
+                },
+                 failure: function (ex)
+                {
+                  alert("Failure");
+                  fun2();
+                },
+                error: function (ex)
+                {
+                  alert("Error");
+                  swal("Good job!", "You clicked the button!", "success");
+                }                
+        });
+        }
+            }
+
+
+    function fun2() {
+        swal("Done!","It was succesfully deleted!","success");
     }
+
+    </script>
+
+
 
 </body>
 </html>
+
+

@@ -9,8 +9,8 @@
     </div>
     <div class="card-body">
         <div class="container h-100">
-            <table class="table table-bordered text-center" id="tableData">
-                @*<caption>List of users</caption>*@
+            <div id="dtbl"></div>
+            @*<table class="table table-bordered text-center" id="tableData">                
                 <thead>
                     <tr>
                         <th scope="col">ID</th>
@@ -21,7 +21,7 @@
                     </tr>
                 </thead>
                 <tbody></tbody>
-            </table>
+            </table>*@
         </div>
     </div>
 </div>
@@ -42,6 +42,7 @@
             data: {  },
             dataType: "json",
              success: function (data) {
+                 addTableHeader();
                  var items = '';
                   $.each(data, function (i, item) {
                         var rows = "<tr>"
@@ -52,8 +53,7 @@
                             + "<td>" + item.MobileNumber + "</td>"
                             + "</tr>";
                         $('#tableData tbody').append(rows);
-                  })
-                 //alert('Success');
+                  })                 
              },
               error: function (ex)
             {
@@ -66,4 +66,9 @@
         });
     }
 
+
+    function addTableHeader() {
+        var tbl = '<table class="table table-bordered text-center" id="tableData"><thead> <tr>         <th scope="col">ID</th>                    <th scope="col">Place</th>                        <th scope="col">Supervisor Name</th>                        <th scope="col">Capacity</th>                        <th scope="col">Mobile Number</th>                    </tr>                </thead>                <tbody></tbody>            </table>';
+        document.getElementById("dtbl").innerHTML = tbl;        
+    }
 </script>

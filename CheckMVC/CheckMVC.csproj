@@ -124,6 +124,7 @@
     <Content Include="Content\css\logIn.css" />
     <Content Include="Content\css\shop-homepage.css" />
     <Content Include="Content\js\jQuery.js" />
+    <Content Include="Content\js\JqueryValidation.js" />
     <Content Include="Content\vendor\bootstrap\css\bootstrap-grid.css" />
     <Content Include="Content\vendor\bootstrap\css\bootstrap-grid.min.css" />
     <Content Include="Content\vendor\bootstrap\css\bootstrap-reboot.css" />
@@ -193,6 +194,7 @@
     <Content Include="Views\Default\Create.cshtml" />
     <Content Include="Views\Default\Serial.cshtml" />
     <Content Include="Views\Default\AjaxCheck.cshtml" />
+    <Content Include="Views\Default\Check.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

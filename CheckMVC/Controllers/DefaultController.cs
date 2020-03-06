@@ -17,7 +17,6 @@ namespace CheckMVC.Controllers
 {
     public class DefaultController : Controller
     {
-
         MySqlConnection Con;
         MySqlCommand Cmd;
         MySqlDataReader MySqlDataReader;
@@ -281,5 +280,11 @@ namespace CheckMVC.Controllers
             return Json(null);
         }
       
+
+
+        public ActionResult Check()
+        {
+            return View();
+        }
     }
 }

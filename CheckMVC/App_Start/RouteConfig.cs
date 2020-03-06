@@ -18,6 +18,16 @@ namespace CheckMVC
                 url: "{controller}/{action}/{id}",
                 defaults: new { controller = "Default", action = "Home", id = UrlParameter.Optional }
             );
+            routes.MapRoute(
+                name: "Admin",
+                url: "{controller}/{action}/{id}",
+                defaults: new { controller = "Admin", action = "AddWareHouse", id = UrlParameter.Optional }
+            );
+            routes.MapRoute(
+                name: "User",
+                url: "{controller}/{action}/{id}",
+                defaults: new { controller = "User", action = "Acceptance", id = UrlParameter.Optional }
+            );
         }
     }
 }
