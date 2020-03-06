@@ -20,8 +20,7 @@
                         <th scope="col">Mobile Number</th>
                     </tr>
                 </thead>
-                <tbody>                                                  
-                </tbody>
+                <tbody></tbody>
             </table>
         </div>
     </div>
@@ -34,15 +33,15 @@
    $(document).ready(function () {
     fun();
 });
-          
-    function fun() {       
+
+    function fun() {
          $.ajax({
-            type: "POST",            
+            type: "POST",
              url: '@Url.Action("TblValidation")',
             contentType: "application/json; charset=utf-8",
             data: {  },
             dataType: "json",
-             success: function (data) {                 
+             success: function (data) {
                  var items = '';
                   $.each(data, function (i, item) {
                         var rows = "<tr>"
@@ -55,9 +54,16 @@
                         $('#tableData tbody').append(rows);
                   })
                  //alert('Success');
-             }
+             },
+              error: function (ex)
+            {
+                var r = jQuery.parseJSON(response.responseText);
+                  alert("Message: " + r.Message);
+                  alert("StackTrace: " + r.StackTrace);
+                alert("ExceptionType: " + r.ExceptionType);
+            }
 
         });
     }
-        
+
 </script>
