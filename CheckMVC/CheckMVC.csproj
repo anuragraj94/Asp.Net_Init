@@ -195,6 +195,8 @@
     <Content Include="Views\Default\Serial.cshtml" />
     <Content Include="Views\Default\AjaxCheck.cshtml" />
     <Content Include="Views\Default\Check.cshtml" />
+    <Content Include="Views\Default\CH.cshtml" />
+    <Content Include="Views\Default\Pagination.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

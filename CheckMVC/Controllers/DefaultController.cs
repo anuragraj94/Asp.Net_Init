@@ -286,5 +286,51 @@ namespace CheckMVC.Controllers
         {
             return View();
         }
+        public ActionResult CH()
+        {
+            return View();
+        }
+        //[HttpPost]
+        public JsonResult tblData(string ID)
+        {
+            try
+            {
+                if (ID == null)
+                    return null;
+
+                int id = Convert.ToInt32(ID);
+                List<Models.clsModel_ShiftOrder> lst = new List<Models.clsModel_ShiftOrder>();
+                Models.clsModel_ShiftOrder modelData = new Models.clsModel_ShiftOrder();
+                if (DbConnection())
+                {
+                    dataTable1 = new DataTable();
+                    Query = "select * from tbl_shiftorder where OrderId =" + id + "";
+                    Cmd = new MySqlCommand(Query, Con);
+                    MySqlDataAdapter = new MySqlDataAdapter(Cmd);
+                    MySqlDataAdapter.Fill(dataTable1);
+                    for (int i = 0; i < dataTable1.Rows.Count; i++)
+                    {
+                        modelData.OrderId = Convert.ToInt32(dataTable1.Rows[i]["OrderId"]);
+                        modelData.ShiftFrom = dataTable1.Rows[i]["ShiftFrom"].ToString();
+                        modelData.QuantityOrdered = Convert.ToInt32(dataTable1.Rows[i]["QuantityOrdered"]);
+                        modelData.ShiftTo = dataTable1.Rows[i]["ShiftTo"].ToString();
+                        modelData.Capacity = Convert.ToInt32(dataTable1.Rows[i]["Capacity"].ToString());
+                        modelData.QuantityInWarehouse = Convert.ToInt32(dataTable1.Rows[i]["QuantityInWarehouse"].ToString());
+                        lst.Add(modelData);
+                    }
+                    return Json(lst);
+                }
+            }
+            catch (Exception ex)
+            {
+
+            }
+            return Json(null);
+        }
+
+        public ActionResult Pagination()
+        {
+            return View();
+        }
     }
 }
