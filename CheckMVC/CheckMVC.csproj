@@ -123,6 +123,10 @@
   <ItemGroup>
     <Content Include="Content\css\logIn.css" />
     <Content Include="Content\css\shop-homepage.css" />
+    <Content Include="Content\Images\3.gif" />
+    <Content Include="Content\Images\Dual Ball-1s-200px.gif" />
+    <Content Include="Content\Images\Pulse-1s-200px.gif" />
+    <Content Include="Content\Images\Spinner-1s-200px.gif" />
     <Content Include="Content\js\jQuery.js" />
     <Content Include="Content\js\JqueryValidation.js" />
     <Content Include="Content\vendor\bootstrap\css\bootstrap-grid.css" />
@@ -139,12 +143,15 @@
     <Content Include="Content\vendor\jquery\jquery.min.js" />
     <Content Include="Content\vendor\jquery\jquery.slim.js" />
     <Content Include="Content\vendor\jquery\jquery.slim.min.js" />
+    <Content Include="Content\ViewJS\CH.js" />
     <Content Include="Global.asax" />
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="App_Start\BundleConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
+    <Compile Include="BLL\AdminBll.cs" />
+    <Compile Include="BLL\DefaultBll.cs" />
     <Compile Include="Controllers\AdminController.cs" />
     <Compile Include="Controllers\DefaultController.cs" />
     <Compile Include="Controllers\UserController.cs" />

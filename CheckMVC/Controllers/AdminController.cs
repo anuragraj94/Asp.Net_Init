@@ -1,4 +1,5 @@
-﻿using CheckMVC.Models;
+﻿using CheckMVC.BLL;
+using CheckMVC.Models;
 using MySql.Data.MySqlClient;
 using System;
 using System.Collections.Generic;
@@ -53,7 +54,7 @@ namespace CheckMVC.Controllers
         }
 
 
-
+        AdminBll _AdminBll = new AdminBll();
         // GET: Admin
         public ActionResult AddWareHouse()
         {
@@ -61,27 +62,15 @@ namespace CheckMVC.Controllers
         }
         [HttpPost]
         public ActionResult AddWareHouse(Models.clsModel_AddwareHouse data)
-        {
-            if (DbConnection())
+        {            
+             var val= _AdminBll.AddWareHouse(data);
+            if (val==1)
             {
-                try
-                {
-                    Query = "insert into tbl_warehous values(@ID,@Place,@SupervisorName,@Capacity,@Address)";
-                    Cmd = new MySqlCommand(Query, Con);
-                    Cmd.Parameters.AddWithValue("ID", data.ID);
-                    Cmd.Parameters.AddWithValue("Place", data.Place);
-                    Cmd.Parameters.AddWithValue("SupervisorName", data.SupervisorName);
-                    Cmd.Parameters.AddWithValue("Capacity", data.Capacity);
-                    Cmd.Parameters.AddWithValue("Address", data.MobileNumber);
-                    Con.Open();
-                    Cmd.ExecuteNonQuery();
-                    Con.Close();
-                    TempData["msg"] = "Submitted Successfully";
-                }
-                catch (Exception ex)
-                {
-                    TempData["msg"] = ex.ToString();
-                }
+                TempData["msg"] = "Submitted Successfully";
+            }
+            else
+            {
+                TempData["msg"] = "Failed..........";
             }
             return View();
         }
@@ -91,25 +80,15 @@ namespace CheckMVC.Controllers
         }
         [HttpPost]
         public ActionResult OrderCargo(Models.clsModel_OrderCargo data)
-        {
-            if (DbConnection())
+        {           
+            var val = _AdminBll.OrderCargo(data);
+            if (val==1)
             {
-                try
-                {
-                    Query = "insert into tbl_ordercargo values(@OrderID,@Quantity,@WarehousePlace)";
-                    Cmd = new MySqlCommand(Query, Con);
-                    Cmd.Parameters.AddWithValue("OrderID", data.OrderID);
-                    Cmd.Parameters.AddWithValue("Quantity", data.Quantity);
-                    Cmd.Parameters.AddWithValue("WarehousePlace", data.WarehousePlace);                    
-                    Con.Open();
-                    Cmd.ExecuteNonQuery();
-                    Con.Close();
-                    TempData["msg"] = "Submitted Successfully";
-                }
-                catch (Exception ex)
-                {
-                    TempData["msg"] = ex.ToString();
-                }
+                TempData["msg"] = "Submitted Successfully";
+            }
+            else
+            {
+                TempData["msg"] = "Failed.........";
             }
             return View();
         }
@@ -119,28 +98,15 @@ namespace CheckMVC.Controllers
         }
         [HttpPost]
         public ActionResult ShiftOrder(Models.clsModel_ShiftOrder data)
-        {
-            if (DbConnection())
+        {           
+            var val = _AdminBll.ShiftOrder(data);
+            if (val == 1)
             {
-                try
-                {
-                    Query = "insert into tbl_shiftorder values(@OrderId,@ShiftFrom,@QuantityOrdered,@ShiftTo,@Capacity,@QuantityInWarehouse)";
-                    Cmd = new MySqlCommand(Query, Con);
-                    Cmd.Parameters.AddWithValue("OrderId", data.OrderId);
-                    Cmd.Parameters.AddWithValue("ShiftFrom", data.ShiftFrom);
-                    Cmd.Parameters.AddWithValue("QuantityOrdered", data.QuantityOrdered);
-                    Cmd.Parameters.AddWithValue("ShiftTo", data.ShiftTo);
-                    Cmd.Parameters.AddWithValue("Capacity", data.Capacity);
-                    Cmd.Parameters.AddWithValue("QuantityInWarehouse", data.QuantityInWarehouse);
-                    Con.Open();
-                    Cmd.ExecuteNonQuery();
-                    Con.Close();
-                    TempData["msg"] = "Submitted Successfully";
-                }
-                catch (Exception ex)
-                {
-                    TempData["msg"] = ex.ToString();
-                }
+                TempData["msg"] = "Submitted Successfully";
+            }
+            else
+            {
+                TempData["msg"] = "Failed.........";
             }
             return View();
         }

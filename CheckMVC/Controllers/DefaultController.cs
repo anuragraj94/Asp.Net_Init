@@ -1,4 +1,5 @@
-﻿using CheckMVC.Models;
+﻿using CheckMVC.BLL;
+using CheckMVC.Models;
 using MySql.Data.MySqlClient;
 using System;
 using System.Collections.Generic;
@@ -86,11 +87,13 @@ namespace CheckMVC.Controllers
             }
             else
             {
-                if (logIn.UserName == "admin" && logIn.Password == "111")
+                DefaultBll _DefaultBll = new DefaultBll();
+                var data = _DefaultBll.logIn(logIn);
+                if (data==1)
                 {
                     return RedirectToAction("AddWareHouse", "Admin");
                 }
-                else if (logIn.UserName == "Kunal" && logIn.Password == "111")
+                else if (data==2)
                 {
                     return RedirectToAction("Acceptance", "User");
                 }
@@ -110,21 +113,14 @@ namespace CheckMVC.Controllers
         }
         [HttpPost]
         public ActionResult Create(Models.DataModel data)
-        {
-            if (DbConnection())
+        {           
+            DefaultBll _DefaultBll = new DefaultBll();
+            bool bData = _DefaultBll.CreateUser(data);
+            if (bData == true)
             {
-                Query = "insert into persons values(@ID,@UserName,@Password,@Email,@Address)";
-                Cmd = new MySqlCommand(Query, Con);
-                Cmd.Parameters.AddWithValue("ID", null);
-                Cmd.Parameters.AddWithValue("UserName", data.UserName);
-                Cmd.Parameters.AddWithValue("Password", data.Password);
-                Cmd.Parameters.AddWithValue("Email", data.Email);
-                Cmd.Parameters.AddWithValue("Address", data.Address);
-                Con.Open();
-                Cmd.ExecuteNonQuery();
-                Con.Close();
+                return RedirectToAction("Create");
             }
-            return RedirectToAction("Create");
+            return View();
         }
         public ActionResult list()
         {
@@ -249,35 +245,9 @@ namespace CheckMVC.Controllers
         }
        [HttpPost]
         public JsonResult TblValidation()
-        {
-            try
-            {
-                List<clsModel_AddwareHouse> lst = new List<clsModel_AddwareHouse>();
-                clsModel_AddwareHouse modelData = new clsModel_AddwareHouse();
-                if (DbConnection())
-                {
-                    dataTable1 = new DataTable();                    
-                    Query = "select * from tbl_warehous";
-                    Cmd = new MySqlCommand(Query, Con);
-                    MySqlDataAdapter = new MySqlDataAdapter(Cmd);
-                    MySqlDataAdapter.Fill(dataTable1);
-                    for (int i = 0; i < dataTable1.Rows.Count; i++)
-                    {
-                        modelData.ID = Convert.ToInt32(dataTable1.Rows[i]["Warehouse Id"]);
-                        modelData.Place = dataTable1.Rows[i]["Place"].ToString();
-                        modelData.SupervisorName = dataTable1.Rows[i]["SupervisorName"].ToString();
-                        modelData.Capacity = dataTable1.Rows[i]["Capacity"].ToString();
-                        modelData.MobileNumber = dataTable1.Rows[i]["MobileNumber"].ToString();
-                        lst.Add(modelData);
-                    }
-                    return Json(lst);
-                }
-            }
-            catch (Exception ex)
-            {
-
-            }
-            return Json(null);
+        {           
+            DefaultBll _DefaultBll = new DefaultBll();
+            return Json(_DefaultBll.BindTblValidation(), JsonRequestBehavior.AllowGet);
         }
       
 
@@ -292,42 +262,18 @@ namespace CheckMVC.Controllers
         }
         //[HttpPost]
         public JsonResult tblData(string ID)
+        {           
+            DefaultBll _DefaultBll = new DefaultBll();
+            return Json(_DefaultBll.BindTblData(ID),JsonRequestBehavior.AllowGet);
+        }
+        public JsonResult Edit(int Id)
         {
-            try
-            {
-                if (ID == null)
-                    return null;
-
-                int id = Convert.ToInt32(ID);
-                List<Models.clsModel_ShiftOrder> lst = new List<Models.clsModel_ShiftOrder>();
-                Models.clsModel_ShiftOrder modelData = new Models.clsModel_ShiftOrder();
-                if (DbConnection())
-                {
-                    dataTable1 = new DataTable();
-                    Query = "select * from tbl_shiftorder where OrderId =" + id + "";
-                    Cmd = new MySqlCommand(Query, Con);
-                    MySqlDataAdapter = new MySqlDataAdapter(Cmd);
-                    MySqlDataAdapter.Fill(dataTable1);
-                    for (int i = 0; i < dataTable1.Rows.Count; i++)
-                    {
-                        modelData.OrderId = Convert.ToInt32(dataTable1.Rows[i]["OrderId"]);
-                        modelData.ShiftFrom = dataTable1.Rows[i]["ShiftFrom"].ToString();
-                        modelData.QuantityOrdered = Convert.ToInt32(dataTable1.Rows[i]["QuantityOrdered"]);
-                        modelData.ShiftTo = dataTable1.Rows[i]["ShiftTo"].ToString();
-                        modelData.Capacity = Convert.ToInt32(dataTable1.Rows[i]["Capacity"].ToString());
-                        modelData.QuantityInWarehouse = Convert.ToInt32(dataTable1.Rows[i]["QuantityInWarehouse"].ToString());
-                        lst.Add(modelData);
-                    }
-                    return Json(lst);
-                }
-            }
-            catch (Exception ex)
-            {
-
-            }
             return Json(null);
         }
-
+        public JsonResult Delete(int Id)
+        {
+            return Json(null);
+        }
         public ActionResult Pagination()
         {
             return View();
