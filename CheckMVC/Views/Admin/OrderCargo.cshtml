@@ -14,39 +14,37 @@
                 <div class="col-10 col-md-8 col-lg-6">
                     <!-- Form -->
                     @*<form class="form-example" action="" method="post">*@
-                    @using (Html.BeginForm("OrderCargo", "Admin", FormMethod.Post))
-                    {
+                    @*@using (Html.BeginForm("OrderCargo", "Admin", FormMethod.Post))
+                    {*@
                         <!-- Input fields -->
                         <div class="form-group">
                             @*<label for="username">Username:</label>*@
                             @*<input type="text" class="form-control username" id="username" placeholder="Username..." name="username">*@
-                            <input type="text" name="OrderID" value="" required placeholder="Order ID" class="form-control" />
+                            <input type="text" name="OrderID" id="OrderID" value="" required placeholder="Order ID" class="form-control" />
                         </div>
                         <div class="form-group">
                             @*<label for="password">Password:</label>*@
                             @*<input type="password" class="form-control password" id="password" placeholder="Password..." name="password">*@
-                            <input type="text" name="Quantity" value="" required placeholder="Quantity" class="form-control" />
+                            <input type="text" name="Quantity" id="Quantity" value="" required placeholder="Quantity" class="form-control" />
                         </div>
                         <div class="form-group">
                             @*<input type="text" name="WarehousePlace" value="" placeholder="Supervisor Name" class="form-control" />*@
                             <select class="form-control" id="WarehousePlace" required name="WarehousePlace">
-                                <option>Select Place</option>
-                                <option>Delhi</option>
-                                <option>Agra</option>
+                                <option value="0">--- Select Place ---</option>                                
                             </select>
-                        </div>                        
+                        </div>
                         @*<button type="submit" class="btn btn-primary btn-customized">Login</button>*@
 
                         <div class="text-center">
                             <div class="form-group">
-                                <input type="submit" name="name" value="Submit" class="btn btn-primary" />
+                                <input type="submit" name="name" value="Submit" onclick="fun()" class="btn btn-primary" />
                             </div>
                         </div>
                         <!-- End input fields -->
-                        <div class="text-center">
-                            <h6>@TempData["msg"]</h6>
+                        <div id="msg">
+                            @*<h6>@TempData["msg"]</h6>*@
                         </div>
-                    }
+                    @*}*@
                     @*</form>*@
                     <!-- Form end -->
                 </div>
@@ -57,3 +55,53 @@
 
 <br />
 
+
+<script>
+    $( document ).ready(function() {
+        fillDropDown();
+    });
+
+    //-------------------- For Save Records in database -------------
+    function fun() {
+        var Data = {
+            OrderID: $('#OrderID').val(),
+            Quantity: $('#Quantity').val(),
+            WarehousePlace: $('#WarehousePlace :selected').text()
+        }        
+        
+        $.ajax('/Admin/OrderCargo', {
+            type: 'POST',  // http method
+            data: { ModelData: Data },  // data to submit
+            success: function (data) {
+                $('#OrderID').val();
+                $('#Quantity').val();
+                $('#WarehousePlace').val(0);
+                if (data == 1) {
+                    $("#msg").html('<div class="text-center text-success">                <h5>Submitted Successfully</h5>            </div>');
+                } else {
+                    $("#msg").html('<div class="text-center text-danger">                <h5>Failed..........</h5>            </div>');
+                }
+            },
+            error: function (jqXhr, textStatus, errorMessage) {
+                alert('Error');
+            }
+        });
+    }
+
+
+    //-------------------- For Fill Dropdown list from database -------------
+    function fillDropDown() {
+         $.ajax('/Admin/GetDDList', {
+            type: 'GET',  // http method
+            data: {  },  // data to submit
+             success: function (data) {                             
+                 $.each(data, function (i, item) {                                        
+                        $("#WarehousePlace").append($("<option></option>").val(item.ID).html(item.Place));  
+                    });
+            },
+            error: function (jqXhr, textStatus, errorMessage) {
+                alert('Error');
+             }            
+         });        
+    }
+</script>

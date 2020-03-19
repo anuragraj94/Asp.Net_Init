@@ -61,36 +61,22 @@ namespace CheckMVC.Controllers
             return View();
         }
         [HttpPost]
-        public ActionResult AddWareHouse(Models.clsModel_AddwareHouse data)
-        {            
-             var val= _AdminBll.AddWareHouse(data);
-            if (val==1)
-            {
-                TempData["msg"] = "Submitted Successfully";
-            }
-            else
-            {
-                TempData["msg"] = "Failed..........";
-            }
-            return View();
+        public JsonResult AddWareHouse(Models.clsModel_AddwareHouse ModelData)
+        {                         
+            return Json(_AdminBll.AddWareHouse(ModelData), JsonRequestBehavior.AllowGet);
         }
         public ActionResult OrderCargo()
         {
             return View();
         }
         [HttpPost]
-        public ActionResult OrderCargo(Models.clsModel_OrderCargo data)
-        {           
-            var val = _AdminBll.OrderCargo(data);
-            if (val==1)
-            {
-                TempData["msg"] = "Submitted Successfully";
-            }
-            else
-            {
-                TempData["msg"] = "Failed.........";
-            }
-            return View();
+        public JsonResult OrderCargo(Models.clsModel_OrderCargo ModelData)
+        {            
+            return Json(_AdminBll.OrderCargo(ModelData), JsonRequestBehavior.AllowGet);
+        }
+        public JsonResult GetDDList()
+        {
+            return Json(_AdminBll.GetDDList(), JsonRequestBehavior.AllowGet);
         }
         public ActionResult ShiftOrder()
         {
@@ -140,8 +126,7 @@ namespace CheckMVC.Controllers
         {
             try
             {                
-                List<Models.clsModel_ShiftOrder> lst = new List<Models.clsModel_ShiftOrder>();
-                Models.clsModel_ShiftOrder modelData = new Models.clsModel_ShiftOrder();
+                List<Models.clsModel_ShiftOrder> lst = new List<Models.clsModel_ShiftOrder>();                
                 if (DbConnection())
                 {
                     dataTable1 = new DataTable();                    
@@ -151,6 +136,7 @@ namespace CheckMVC.Controllers
                     MySqlDataAdapter.Fill(dataTable1);
                     for (int i = 0; i < dataTable1.Rows.Count; i++)
                     {
+                        Models.clsModel_ShiftOrder modelData = new Models.clsModel_ShiftOrder();
                         modelData.OrderId = Convert.ToInt32(dataTable1.Rows[i]["OrderId"]);
                         modelData.ShiftFrom = dataTable1.Rows[i]["ShiftFrom"].ToString();
                         modelData.QuantityOrdered = Convert.ToInt32(dataTable1.Rows[i]["QuantityOrdered"]);

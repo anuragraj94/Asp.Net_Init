@@ -76,7 +76,7 @@ namespace CheckMVC.Controllers
         {
             return View();
         }
-        [HttpPost]
+        /*[HttpPost]
         public ActionResult LogIn(Models.logIn logIn)
         {
             if (!ModelState.IsValid)
@@ -105,7 +105,7 @@ namespace CheckMVC.Controllers
                 }
             }
             return View(logIn);
-        }
+        }*/
 
         [HttpPost]
         public JsonResult _LogIn(Models.logIn logIn)

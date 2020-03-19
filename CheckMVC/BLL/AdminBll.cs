@@ -54,22 +54,21 @@ namespace CheckMVC.BLL
                 {
                     try
                     {
-                        Query = "insert into tbl_warehous values(@ID,@Place,@SupervisorName,@Capacity,@Address)";
+                        Query = "insert into tbl_warehous values(@ID,@Place,@SupervisorName,@Capacity,@MobileNumber)";
                         Cmd = new MySqlCommand(Query, Con);
                         Cmd.Parameters.AddWithValue("ID", data.ID);
                         Cmd.Parameters.AddWithValue("Place", data.Place);
                         Cmd.Parameters.AddWithValue("SupervisorName", data.SupervisorName);
                         Cmd.Parameters.AddWithValue("Capacity", data.Capacity);
-                        Cmd.Parameters.AddWithValue("Address", data.MobileNumber);
+                        Cmd.Parameters.AddWithValue("MobileNumber", data.MobileNumber);
                         Con.Open();
                         Cmd.ExecuteNonQuery();
-                        Con.Close();
-                        //TempData["msg"] = "Submitted Successfully";
+                        Con.Close();                        
                         return 1;
                     }
                     catch (Exception ex)
                     {
-                        //TempData["msg"] = ex.ToString();
+                        return 0;
                     }
                 }
             }
@@ -110,6 +109,43 @@ namespace CheckMVC.BLL
                 
             }
             return 0;
+        }
+        public List<clsModel_AddwareHouse> GetDDList()
+        {
+            try
+            {                
+                if (DbConnection())
+                {
+                    try
+                    {
+                        List<clsModel_AddwareHouse> lst = new List<clsModel_AddwareHouse>();                        
+                        DataTable = new DataTable();
+                        Query = "select * from tbl_warehous";
+                        Cmd = new MySqlCommand(Query, Con);
+                        MySqlDataAdapter = new MySqlDataAdapter(Cmd);
+                        MySqlDataAdapter.Fill(DataTable);
+                        for (int i = 0; i < DataTable.Rows.Count; i++)
+                        {
+                            clsModel_AddwareHouse dataModel = new clsModel_AddwareHouse();
+                            dataModel.ID = Convert.ToInt32(DataTable.Rows[i][0]);
+                            dataModel.Place = DataTable.Rows[i][1].ToString();                            
+                            lst.Add(dataModel);
+                        }
+                        return lst;
+                        //TempData["msg"] = "Submitted Successfully";
+                    }
+                    catch (Exception ex)
+                    {
+                        //TempData["msg"] = ex.ToString();
+                        return null;
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                return null;
+            }
+            return null;
         }
 
         public int ShiftOrder(clsModel_ShiftOrder data)
