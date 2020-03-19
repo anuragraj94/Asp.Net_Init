@@ -4,45 +4,92 @@
     Layout = "~/Views/Shared/_Main.cshtml";
 }
 
-<form >    
-    <div class="card">
-        <div class="card-header text-center">
-            <h2>Trace Cargo</h2>
-        </div>
-        <div class="card-body">
-            <div class="container h-100">
-                @*@using (Html.BeginForm("TraceCargo", "Admin", FormMethod.Post))
-        {*@
-                <div class="row h-100 justify-content-center align-items-center">
-                    <div class="col-10 col-md-8 col-lg-6">
+@*<form >*@
+<div class="card">
+    <div class="card-header text-center">
+        <h2>Trace Cargo</h2>
+    </div>
+    <div class="card-body">
+        <div class="container h-100">
+            @*@using (Html.BeginForm("TraceCargo", "Admin", FormMethod.Post))
+                {*@
+            <div class="row h-100 justify-content-center align-items-center">
+                <div class="col-10 col-md-8 col-lg-6">
 
-                        <div class="input-group">
-                            <input type="text" class="form-control" name="Id" id="ID" required placeholder="Trace Cargo">
-                            <div class="input-group-append">
-                                <button class="btn btn-secondary" type="submit" onclick="fun()">
-                                    <i class="fa fa-search"></i>
-                                </button>
-                            </div>
+                    <div class="input-group">
+                        <input type="text" class="form-control" name="Id" id="ID" required placeholder="Trace Cargo">
+                        <div class="input-group-append">
+                            <button class="btn btn-secondary" type="submit" onclick="fun()">
+                                <i class="fa fa-search"></i>
+                            </button>
                         </div>
-                        @*@if (Model == null) { return; }*@
-                        <br />
-                        @*//}*@
                     </div>
+                    @*@if (Model == null) { return; }*@
+                    <br />
+                    @*//}*@
                 </div>
-                <div class="text-center" id="loading">
-                    @*<img src="~/Content/Images/3.gif" />*@
-                    @*<img src="~/Content/Images/Spinner-1s-200px.gif" />*@
-                    @*<img src="~/Content/Images/Dual Ball-1s-200px.gif" />*@
-                    <img src="~/Content/Images/Pulse-1s-200px.gif" />
-                </div>
-                <div id="dtbl"></div>
-
-                @*}*@
             </div>
+            <div class="text-center" id="loading">
+                @*<img src="~/Content/Images/3.gif" />*@
+                @*<img src="~/Content/Images/Spinner-1s-200px.gif" />*@
+                @*<img src="~/Content/Images/Dual Ball-1s-200px.gif" />*@
+                <img src="~/Content/Images/Pulse-1s-200px.gif" />
+            </div>
+            <div id="dtbl"></div>
+            
+            @*}*@
         </div>
     </div>
+</div>
 <br />
 @TempData["msg"]
-    </form>
+@*</form>*@
 
-<script src="~/Content/ViewJS/CH.js"></script>
+@*<script src="~/Content/ViewJS/CH.js"></script>*@
+<script>
+    $(document).ready(function () {
+        $("#loading").hide();   
+});
+    function fun() {
+        var id = $("#ID").val();
+        $.ajax('/Default/tblData', {
+            type: 'POST',  // http method
+            data: { ID: id },  // data to submit
+            success: function (data) {                
+                $("#loading").show();
+                $("#ID").val('');
+                if (data == '') {
+                    $('#tableData').empty();                    
+                    $("#dtbl").html('<div class="text-center">                <h4>Data not available</h4>            </div>')
+                    $("#loading").hide();
+                    return;
+                }                
+                addTblHeader();                
+                $.each(data, function (i, item) {                    
+                    var rows = "<tr>"
+                        + "<td>" + item.OrderId + "</td>"
+                        + "<td>" + item.ShiftFrom + "</td>"
+                        + "<td>" + item.QuantityOrdered + "</td>"
+                        + "<td>" + item.ShiftTo + "</td>"
+                        + "<td>" + item.Capacity + "</td>"
+                        + "<td>" + item.QuantityInWarehouse + "</td>"
+                        //+ '<td><button type="button"  class="btn-link btn-action btn-edit" data-toggle="tooltip" data-placement="bottom" title="Edit!" onclick="Edit(' + i + ')"> <i class="fa fa-edit"></i></button> <button type="button" class="btn-link btn-action btn-delete" data-toggle="tooltip" data-placement="bottom" title="Delete!" onclick="Delete(' + i + ')"><i class="fa fa-trash-o"></i></button></td>';
+                    + "</tr>";
+
+                    $('#tableData tbody').append(rows);                    
+                });
+                $("#loading").hide();
+            },
+            error: function (jqXhr, textStatus, errorMessage) {                
+                alert('Error');
+            }
+        });
+    }
+
+
+
+    function addTblHeader() {
+        var tbl = '<table class="table table-bordered text-center" id="tableData">                                        <thead>                        <tr>                            <th scope="col">Order Id </th>                            <th scope="col">Shift From</th>                            <th scope="col">Quantity Ordered</th>                            <th scope="col">Shift To</th>                            <th scope="col">Capacity</th>                            <th scope="col">Quantity In Warehouse</th>                             </tr>                    </thead><tbody></tbody>            </table> ';
+        document.getElementById("dtbl").innerHTML = tbl;
+    }
+</script>

@@ -107,6 +107,20 @@ namespace CheckMVC.Controllers
             return View(logIn);
         }
 
+        [HttpPost]
+        public JsonResult _LogIn(Models.logIn logIn)
+        {
+            if (!ModelState.IsValid)
+            {
+                return Json("F",JsonRequestBehavior.AllowGet);
+            }
+            else
+            {
+                DefaultBll _DefaultBll = new DefaultBll();
+                return Json(_DefaultBll.logIn(logIn), JsonRequestBehavior.AllowGet);
+            }
+        }
+
         public ActionResult Create()
         {
             return View();
@@ -260,11 +274,12 @@ namespace CheckMVC.Controllers
         {
             return View();
         }
-        //[HttpPost]
+        [HttpPost]
         public JsonResult tblData(string ID)
         {           
             DefaultBll _DefaultBll = new DefaultBll();
             return Json(_DefaultBll.BindTblData(ID),JsonRequestBehavior.AllowGet);
+            //return Json("Name:'Helo'");
         }
         public JsonResult Edit(int Id)
         {

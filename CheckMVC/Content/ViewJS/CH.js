@@ -1,77 +1,92 @@
 ﻿$(document).ready(function () {
     $("#loading").hide();
-    addTblHeader();
-    loop();
+    //addTblHeader();
+    //loop();
 });
-//function fun() {
-//    var id = $("#ID").val();
-//    addTblHeader();
-//    loop();
-//    if ($("form")[0].checkValidity()) {
-//        $.ajax({
-//            type: 'GET',
-//            url: '@Url.Action("tblData","Default")',
-//            data: { ID: id },
-//            dataType: 'json',
-//            success: function (data) {                
-//                $.each(data, function (i, item) {
-//                    //CreateLogTable();
-//                    var rows = "<tr>"
-//                        + "<td>" + item.OrderId + "</td>"
-//                        + "<td>" + item.ShiftFrom + "</td>"
-//                        + "<td>" + item.QuantityOrdered + "</td>"
-//                        + "<td>" + item.ShiftTo + "</td>"
-//                        + "<td>" + item.Capacity + "</td>"
-//                        + "<td>" + item.QuantityInWarehouse + "</td>"
-//                        + "</tr>";
-
-//                    $('#tableData tbody').append(rows);
-
-//                }); 
-//            },
-//            error: function (ex) {
-//                var r = jQuery.parseJSON(response.responseText);
-//                alert("Message: " + r.Message);
-//                alert("StackTrace: " + r.StackTrace);
-//                alert("ExceptionType: " + r.ExceptionType);
-//            }
-
-//        });
-//    }
-//}
-
 function fun() {
     var id = $("#ID").val();
-    $("#loading").show();
-    $.get('/Default/tblData?Id='+id+'', function (data) {
-        var res = data;
-        alert('Hey');
-        alert(res);
-        if (res != "") {
-            $('#tableData').empty();
-            addTblHeader();
-            for (var i = 0; i < res.length; i++) {
-                t = '<tr>';
-                t += '<td>' + (parseInt(i) + 1) + '</td>';
-                t += '<td>' + res[i].ShiftFrom + '</td>';
-                t += '<td>' + res[i].QuantityOrdered + '</td>';
-                t += '<td>' + res[i].ShiftTo + '</td>';
-                t += '<td>' + res[i].Capacity + '</td>';
-                t += '<td>' + res[i].QuantityInWarehouse + '</td>';                
+    addTblHeader();
+    loop();
+    if ($("form")[0].checkValidity()) {
+        //$.ajax({
+        //    type: 'POST',
+        //    url: '@Url.Action("tblData","Default")',
+        //    data: { ID: id },
+        //    dataType: 'json',
+        //    success: function (data) {                
+        //        //$.each(data, function (i, item) {
+        //        //    //CreateLogTable();
+        //        //    var rows = "<tr>"
+        //        //        + "<td>" + item.OrderId + "</td>"
+        //        //        + "<td>" + item.ShiftFrom + "</td>"
+        //        //        + "<td>" + item.QuantityOrdered + "</td>"
+        //        //        + "<td>" + item.ShiftTo + "</td>"
+        //        //        + "<td>" + item.Capacity + "</td>"
+        //        //        + "<td>" + item.QuantityInWarehouse + "</td>"
+        //        //        + "</tr>";
 
-                //t += '<td><button type="button"  class="btn-link btn-action btn-edit" data-toggle="tooltip" data-placement="bottom" title="Edit!"> <i class="fa fa-edit"></i></button> <button type="button" class="btn-link btn-action btn-delete" data-toggle="tooltip" data-placement="bottom" title="Delete!"><i class="fa fa-trash-o"></i></button></td>';
+        //        //    $('#tableData tbody').append(rows);
 
-                t += '</tr>';
-                $('#tableData').append(t);
+        //        //}); 
+        //        alert("Success");
+        //    },
+        //    error: function (ex) {
+        //        //var r = jQuery.parseJSON(response.responseText);
+        //        //alert("Message: " + r.Message);
+        //        //alert("StackTrace: " + r.StackTrace);
+        //        //alert("ExceptionType: " + r.ExceptionType);
+        //        alert("Error");
+        //    }
+
+        //});
+        $.ajax({
+            type: 'POST',
+            cache: false,
+            url: '/Default/tblData',
+            dataType: 'json',
+            data: {ID:id},
+            error: function () {
+                alert("error")
+            },
+            success: function (result) {
+                alert("success")
             }
-            $("#loading").hide();
-        }
-        else {
-            ShowAlert("error", "Oops ! There is No Record for this Search", "error");
-            $('#tableData').empty();
-        }
-    });
+        });
+    }
 }
+
+//function fun() {
+//    var id = $("#ID").val();
+//    $("#loading").show();
+//    $.get('/Default/tblData?Id='+id+'', function (data) {
+//        var res = data;
+//        alert('Hey');
+//        alert(res);
+//        if (res != "") {
+//            $('#tableData').empty();
+//            addTblHeader();
+//            for (var i = 0; i < res.length; i++) {
+//                t = '<tr>';
+//                t += '<td>' + (parseInt(i) + 1) + '</td>';
+//                t += '<td>' + res[i].ShiftFrom + '</td>';
+//                t += '<td>' + res[i].QuantityOrdered + '</td>';
+//                t += '<td>' + res[i].ShiftTo + '</td>';
+//                t += '<td>' + res[i].Capacity + '</td>';
+//                t += '<td>' + res[i].QuantityInWarehouse + '</td>';                
+
+//                //t += '<td><button type="button"  class="btn-link btn-action btn-edit" data-toggle="tooltip" data-placement="bottom" title="Edit!"> <i class="fa fa-edit"></i></button> <button type="button" class="btn-link btn-action btn-delete" data-toggle="tooltip" data-placement="bottom" title="Delete!"><i class="fa fa-trash-o"></i></button></td>';
+
+//                t += '</tr>';
+//                $('#tableData').append(t);
+//            }
+//            $("#loading").hide();
+//        }
+//        else {
+//            ShowAlert("error", "Oops ! There is No Record for this Search", "error");
+//            $('#tableData').empty();
+//        }
+//    });
+//}
 
 function CreateLogTable() {
 

@@ -139,7 +139,6 @@ C:\Users\AE TELELINK\Desktop\Asp.Net_Init\WebApplication1\bin\System.Web.WebPage
 C:\Users\AE TELELINK\Desktop\Asp.Net_Init\WebApplication1\bin\System.Web.WebPages.Deployment.xml
 C:\Users\AE TELELINK\Desktop\Asp.Net_Init\WebApplication1\bin\System.Web.WebPages.Razor.xml
 C:\Users\AE TELELINK\Desktop\Asp.Net_Init\WebApplication1\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.xml
-C:\Users\AE TELELINK\Desktop\Asp.Net_Init\WebApplication1\obj\Debug\WebApplication1.csprojAssemblyReference.cache
 C:\Users\AE TELELINK\Desktop\Asp.Net_Init\WebApplication1\obj\Debug\WebApplication1.csproj.CoreCompileInputs.cache
 C:\Users\AE TELELINK\Desktop\Asp.Net_Init\WebApplication1\obj\Debug\WebApplication1.csproj.CopyComplete
 C:\Users\AE TELELINK\Desktop\Asp.Net_Init\WebApplication1\obj\Debug\WebApplication1.dll
